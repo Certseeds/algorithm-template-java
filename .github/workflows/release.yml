@@ -39,7 +39,7 @@ jobs:
 
       - name: unix-like clean build test
         if: ${{ runner.os != 'windows' }}
-        run: chmod +x ./mvnw.sh && ./mvnw.sh clean compile test
+        run: mvn clean compile test
 
   # This workflow contains a single job called "build"
   build:
