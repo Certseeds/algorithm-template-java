@@ -10,7 +10,7 @@
     <name>${project.artifactId}</name>
     <description>${project.artifactId}</description>
     <properties>
-        <revision>0.0.6-SNAPSHOT</revision>
+        <revision>0.0.6</revision>
         <java.version>11</java.version>
         <maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
         <junit.version>5.13.4</junit.version>
