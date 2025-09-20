@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>nanoseeds.CS203_DSAA_template_java</groupId>
+        <groupId>nanoseeds.algorithm-template</groupId>
         <artifactId>lab_%1$s</artifactId>
         <version>${revision}</version>
         <relativePath>./../pom.xml</relativePath>
     </parent>
-    <groupId>nanoseeds.CS203_DSAA_template_java.%1$s</groupId>
+    <groupId>nanoseeds.algorithm-template.%1$s</groupId>
     <artifactId>lab_%1$s_%2$s</artifactId>
     <version>${revision}</version>
     <name>${project.groupId}.${project.artifactId}</name>

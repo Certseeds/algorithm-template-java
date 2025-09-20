@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>nanoseeds</groupId>
-    <artifactId>CS203_DSAA_template_java</artifactId>
+    <artifactId>algorithm-template</artifactId>
     <version>${revision}</version>
     <name>${project.artifactId}</name>
     <description>${project.artifactId}</description>

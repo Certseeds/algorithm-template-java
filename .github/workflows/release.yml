@@ -1,4 +1,4 @@
-# @Github: https://github.com/Certseeds/CS203_DSAA_template_java
+# @Github: https://github.com/Certseeds/algorithm-template-java
 # @Organization: SUSTech
 # @Author: nanoseeds
 # @Date: 2020-07-28 22:43:03
@@ -43,7 +43,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     name: publish release
-    if: github.repository == 'Certseeds/CS203_DSAA_template_java'
+    if: github.repository == 'Certseeds/algorithm-template-java'
     needs: test
     runs-on: ubuntu-latest
 
@@ -87,7 +87,7 @@ jobs:
         working-directory: ./../
         run: |
           echo $(pwd)
-          zip -r script_no_need.zip ./CS203_DSAA_template_java -x "*/.git/*"
+          zip -r script_no_need.zip ./algorithm-template-java -x "*/.git/*"
           echo $(pwd)
 
       - name: release
@@ -103,7 +103,7 @@ jobs:
 
   release-branch:
     name: publish release-branch
-    if: github.repository == 'Certseeds/CS203_DSAA_template_java'
+    if: github.repository == 'Certseeds/algorithm-template-java'
     needs: [ test, build ]
     # The type of runner that the job will run on
     runs-on: ubuntu-latest

@@ -1,4 +1,4 @@
-# @Github: https://github.com/Certseeds/CS203_DSAA_template_java
+# @Github: https://github.com/Certseeds/algorithm-template-java
 # @Organization: SUSTech
 # @Author: nanoseeds
 # @Date: 2020-07-28 22:43:03
@@ -74,20 +74,20 @@ jobs:
       - name: zip the packet
         working-directory: ./../
         run: |
-          zip -r script_no_need.zip ./CS203_DSAA_template_java -x "*/.git/*"
-          mv ./script_no_need.zip ./CS203_DSAA_template_java/script_no_need.zip
+          zip -r script_no_need.zip ./algorithm-template-java -x "*/.git/*"
+          mv ./script_no_need.zip ./algorithm-template-java/script_no_need.zip
 
       - name: unzip the packet
         run: |
           unzip ./script_no_need.zip
           mkdir temp
-          mv ./CS203_DSAA_template_java ./temp/CS203_DSAA_template_java
-          mv ./temp ./CS203_DSAA_template_java
+          mv ./algorithm-template-java ./temp/algorithm-template-java
+          mv ./temp ./algorithm-template-java
 
       - uses: actions/upload-artifact@v4
         with:
           name: script_no_need
-          path: CS203_DSAA_template_java
+          path: algorithm-template-java
 
       # Runs a set of commands using the runners shell
       - name: tree

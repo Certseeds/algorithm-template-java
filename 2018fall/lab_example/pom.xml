@@ -4,13 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>nanoseeds.CS203_DSAA_template_java</groupId>
+        <groupId>nanoseeds.algorithm-template</groupId>
         <artifactId>2018fall</artifactId>
         <version>${revision}</version>
         <relativePath>./../pom.xml</relativePath>
     </parent>
     <packaging>pom</packaging>
-    <groupId>nanoseeds.CS203_DSAA_template_java.2018fall</groupId>
+    <groupId>nanoseeds.algorithm-template.2018fall</groupId>
     <artifactId>lab_example</artifactId>
     <version>${revision}</version>
     <name>${project.groupId}.${project.artifactId}</name>
@@ -26,7 +26,7 @@
     </modules>
     <dependencies>
         <dependency>
-            <groupId>nanoseeds.CS203_DSAA_template_java</groupId>
+            <groupId>nanoseeds.algorithm-template</groupId>
             <artifactId>test_include_package</artifactId>
             <version>${revision}</version>
             <scope>test</scope>

@@ -1,7 +1,7 @@
     </modules>
     <dependencies>
         <dependency>
-            <groupId>nanoseeds.CS203_DSAA_template_java</groupId>
+            <groupId>nanoseeds.algorithm-template</groupId>
             <artifactId>test_include_package</artifactId>
             <version>${revision}</version>
             <scope>test</scope>

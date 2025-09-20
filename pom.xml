@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>nanoseeds</groupId>
-    <artifactId>CS203_DSAA_template_java</artifactId>
+    <artifactId>algorithm-template</artifactId>
     <version>${revision}</version>
     <name>${project.artifactId}</name>
     <description>${project.artifactId}</description>
@@ -25,7 +25,7 @@
     <packaging>pom</packaging>
     <inceptionYear>2020</inceptionYear>
 
-    <url>https://github.com/Certseeds/CS203_DSAA_template_java</url>
+    <url>https://github.com/Certseeds/algorithm-template-java</url>
 
     <licenses>
         <license>
@@ -37,11 +37,11 @@
 
     <issueManagement>
         <system>GitHub Issues</system>
-        <url>https://github.com/Certseeds/CS203_DSAA_template_java/issues</url>
+        <url>https://github.com/Certseeds/algorithm-template-java/issues</url>
     </issueManagement>
     <ciManagement>
         <system>GitHub Actions</system>
-        <url>https://github.com/Certseeds/CS203_DSAA_template_java/actions</url>
+        <url>https://github.com/Certseeds/algorithm-template-java/actions</url>
     </ciManagement>
 
     <dependencies>
