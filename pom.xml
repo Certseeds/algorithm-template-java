@@ -25,6 +25,25 @@
     <packaging>pom</packaging>
     <inceptionYear>2020</inceptionYear>
 
+    <url>https://github.com/Certseeds/CS203_DSAA_template_java</url>
+
+    <licenses>
+        <license>
+            <name>AGPL-3.0-or-later</name>
+            <url>https://spdx.org/licenses/AGPL-3.0-or-later.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/Certseeds/CS203_DSAA_template_java/issues</url>
+    </issueManagement>
+    <ciManagement>
+        <system>GitHub Actions</system>
+        <url>https://github.com/Certseeds/CS203_DSAA_template_java/actions</url>
+    </ciManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -65,8 +84,7 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>clean</goal><!-- Ensure proper cleanup. Will run on clean phase-->
-                            <!-- Enable ci-friendly version resolution. Will run on process-resources phase-->
+                            <goal>clean</goal>
                             <goal>flatten</goal>
                         </goals>
                     </execution>
