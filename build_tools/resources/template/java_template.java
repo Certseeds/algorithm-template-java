@@ -1,5 +1,6 @@
-import java.io.*;
 import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -46,6 +47,18 @@ public final class Main {
 
         private Reader() {
             br = new BufferedReader(new InputStreamReader(System.in));
+            st = new StringTokenizer("");
+        }
+
+        public boolean hasNext() {
+            while (!st.hasMoreTokens()) {
+                String nextLine = nextLine();
+                if (nextLine == null) {
+                    return false;
+                }
+                st = new StringTokenizer(nextLine);
+            }
+            return true;
         }
 
         String next() {

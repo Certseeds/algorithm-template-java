@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Slf4j
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public final class MainTest {
     private static final String[] init_String = new String[0];
     private static final String DATA_PATH = "resources/";

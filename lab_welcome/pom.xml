@@ -5,12 +5,12 @@
 
     <parent>
         <groupId>nanoseeds</groupId>
-        <artifactId>CS203_DSAA_template_java</artifactId>
+        <artifactId>algorithm-template</artifactId>
         <version>${revision}</version>
         <relativePath>./../pom.xml</relativePath>
     </parent>
     <packaging>pom</packaging>
-    <groupId>nanoseeds.CS203_DSAA_template_java</groupId>
+    <groupId>nanoseeds.algorithm-template</groupId>
     <artifactId>lab_welcome</artifactId>
     <version>${revision}</version>
     <name>${project.groupId}.${project.artifactId}</name>
@@ -23,7 +23,7 @@
     </modules>
     <dependencies>
         <dependency>
-            <groupId>nanoseeds.CS203_DSAA_template_java</groupId>
+            <groupId>nanoseeds.algorithm-template</groupId>
             <artifactId>test_include_package</artifactId>
             <version>${revision}</version>
             <scope>test</scope>

@@ -1,4 +1,4 @@
-# @Github: https://github.com/Certseeds/CS203_DSAA_template_java
+# @Github: https://github.com/Certseeds/algorithm-template-java
 # @Organization: SUSTech
 # @Author: nanoseeds
 # @Date: 2020-07-28 22:43:03
@@ -23,28 +23,27 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-22.04, ubuntu-latest ]
+        os: [ ubuntu-latest ]
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       - name: Setup Java JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v5
         with:
-          java-version: 11
+          java-version: 21
           distribution: 'temurin'
           cache: 'maven'
 
       - name: unix-like clean build test
-        if: ${{ runner.os != 'windows' }}
-        run: chmod +x ./mvnw.sh && ./mvnw.sh clean compile test
+        run: mvn clean compile test
 
   # This workflow contains a single job called "build"
   build:
     name: publish release
-    if: github.repository == 'Certseeds/CS203_DSAA_template_java'
+    if: github.repository == 'Certseeds/algorithm-template-java'
     needs: test
     runs-on: ubuntu-latest
 
@@ -52,12 +51,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       - name: Setup Java JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v5
         with:
-          java-version: 11
+          java-version: 21
           distribution: 'temurin'
           cache: 'maven'
 
@@ -88,7 +87,7 @@ jobs:
         working-directory: ./../
         run: |
           echo $(pwd)
-          zip -r script_no_need.zip ./CS203_DSAA_template_java -x "*/.git/*"
+          zip -r script_no_need.zip ./algorithm-template-java -x "*/.git/*"
           echo $(pwd)
 
       - name: release
@@ -104,7 +103,7 @@ jobs:
 
   release-branch:
     name: publish release-branch
-    if: github.repository == 'Certseeds/CS203_DSAA_template_java'
+    if: github.repository == 'Certseeds/algorithm-template-java'
     needs: [ test, build ]
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -113,7 +112,7 @@ jobs:
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       - name: Branch name
         id: branch_name

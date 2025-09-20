@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>nanoseeds</groupId>
-    <artifactId>CS203_DSAA_template_java</artifactId>
+    <artifactId>algorithm-template</artifactId>
     <version>${revision}</version>
     <name>${project.artifactId}</name>
     <description>${project.artifactId}</description>
     <properties>
-        <revision>0.0.5</revision>
+        <revision>0.0.6-SNAPSHOT</revision>
         <java.version>11</java.version>
         <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
         <junit.version>5.9.2</junit.version>

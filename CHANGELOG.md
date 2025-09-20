@@ -1,4 +1,4 @@
-## <small>0.0.5 (2023-04-27)</small>
+## 0.0.5 (2023-04-27)
 
 * feat: add 2018fall_lab_3 3162888
 * feat: add 2018fall_lab3_1138 9e5d719
@@ -10,7 +10,7 @@
 * feat: bump version to 0.0.5-SNAPSHOT b68eef6
 * feat: update 2018fall_lab3_1143 and 2018fall_lab3's conclusion 4df0309
 
-## <small>0.0.4 (2023-04-08)</small>
+## 0.0.4 (2023-04-08)
 
 * feat: add 2018fall_lab2_1129 020ccf6
 * feat: add lab_2_1131 and move lab_example to 2018fall subfolder 40481e2
@@ -30,9 +30,7 @@
 
 * move lab_example to 2018fall submodule
 
-Signed-off-by: Certseeds <51754303+Certseeds@users.noreply.github.com>
-
-## <small>0.0.3 (2023-04-02)</small>
+## 0.0.3 (2023-04-02)
 
 * feat: add example folder for real-problem 62f2a28
 * feat: add example_1166 9fd347b
@@ -54,15 +52,11 @@ Signed-off-by: Certseeds <51754303+Certseeds@users.noreply.github.com>
 
 * LICENSE move to AGPL3+
 
-Signed-off-by: Certseeds <51754303+Certseeds@users.noreply.github.com>
-
 * move reader to kattio-quickread
 
 the origin one is not good enough, find a better one.
 
-Signed-off-by: Certseeds <51754303+Certseeds@users.noreply.github.com>
-
-## <small>0.0.2 (2023-03-23)</small>
+## 0.0.2 (2023-03-23)
 
 * feat: add changelog and update file permission b15cbda
 * feat: bump version to 0.0.2 19cea06
@@ -73,7 +67,7 @@ Signed-off-by: Certseeds <51754303+Certseeds@users.noreply.github.com>
 * feat: update build_tools for project-struct b6e9920
 * fix: add relativePath in pom.xml to fix parse error 7adf88a
 
-## <small>0.0.1 (2022-05-15)</small>
+## 0.0.1 (2022-05-15)
 
 * feature: add build script d0066c4
 * feature: add coc and bug_report.yaml ce7fbf5

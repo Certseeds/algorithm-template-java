@@ -5,11 +5,11 @@
 
     <parent>
         <groupId>nanoseeds</groupId>
-        <artifactId>CS203_DSAA_template_java</artifactId>
+        <artifactId>algorithm-template</artifactId>
         <version>${revision}</version>
         <relativePath>./../pom.xml</relativePath>
     </parent>
-    <groupId>nanoseeds.CS203_DSAA_template_java</groupId>
+    <groupId>nanoseeds.algorithm-template</groupId>
     <artifactId>build_tools</artifactId>
     <version>${revision}</version>
     <name>${project.groupId}.${project.artifactId}</name>
