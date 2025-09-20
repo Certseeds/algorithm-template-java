@@ -10,18 +10,39 @@
     <name>${project.artifactId}</name>
     <description>${project.artifactId}</description>
     <properties>
-        <revision>0.0.6-SNAPSHOT</revision>
+        <revision>0.0.7</revision>
         <java.version>11</java.version>
-        <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
-        <junit.version>5.9.2</junit.version>
-        <ci-friendly-flatten-maven-plugin.version>1.0.16</ci-friendly-flatten-maven-plugin.version>
+        <maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
+        <junit.version>5.13.4</junit.version>
+        <ci-friendly-flatten-maven-plugin.version>1.0.20</ci-friendly-flatten-maven-plugin.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <maven.compiler.plugin.version>3.14.0</maven.compiler.plugin.version>
         <project.build.sourceEncoding>${maven.compiler.encoding}</project.build.sourceEncoding>
     </properties>
     <packaging>pom</packaging>
     <inceptionYear>2020</inceptionYear>
+
+    <url>https://github.com/Certseeds/algorithm-template-java</url>
+
+    <licenses>
+        <license>
+            <name>AGPL-3.0-or-later</name>
+            <url>https://spdx.org/licenses/AGPL-3.0-or-later.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/Certseeds/algorithm-template-java/issues</url>
+    </issueManagement>
+    <ciManagement>
+        <system>GitHub Actions</system>
+        <url>https://github.com/Certseeds/algorithm-template-java/actions</url>
+    </ciManagement>
 
     <dependencies>
         <dependency>
@@ -34,6 +55,18 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>2.0.17</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.42</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -51,12 +84,20 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>clean</goal><!-- Ensure proper cleanup. Will run on clean phase-->
-                            <!-- Enable ci-friendly version resolution. Will run on process-resources phase-->
+                            <goal>clean</goal>
                             <goal>flatten</goal>
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <!-- 这个配置是可选的，因为插件默认会读取 maven.compiler.release 属性 -->
+                    <release>${java.version}</release><!-- 但显式声明可以提高可读性 -->
+                </configuration>
             </plugin>
         </plugins>
     </build>
