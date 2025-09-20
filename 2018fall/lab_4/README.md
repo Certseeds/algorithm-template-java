@@ -8,3 +8,4 @@
 + [x] problem D: lab_4_1162
 + [ ] problem E: lab_4_1163
 + [x] problem F: lab_4_1164
++ [x] problem G: lab_4_1165
