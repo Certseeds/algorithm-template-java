@@ -77,17 +77,10 @@ jobs:
           zip -r script_no_need.zip ./algorithm-template-java -x "*/.git/*"
           mv ./script_no_need.zip ./algorithm-template-java/script_no_need.zip
 
-      - name: unzip the packet
-        run: |
-          unzip ./script_no_need.zip
-          mkdir temp
-          mv ./algorithm-template-java ./temp/algorithm-template-java
-          mv ./temp ./algorithm-template-java
-
       - uses: actions/upload-artifact@v4
         with:
-          name: script_no_need
-          path: algorithm-template-java
+          name: script_no_need.zip
+          path: script_no_need.zip
 
       # Runs a set of commands using the runners shell
       - name: tree
