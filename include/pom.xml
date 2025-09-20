@@ -17,16 +17,4 @@
     <build>
         <sourceDirectory>${project.basedir}/src</sourceDirectory>
     </build>
-    <dependencies>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-jdk14</artifactId>
-            <version>2.0.17</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.42</version>
-        </dependency>
-    </dependencies>
 </project>
