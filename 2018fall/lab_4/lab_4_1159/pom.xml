@@ -9,7 +9,7 @@
         <version>${revision}</version>
         <relativePath>./../pom.xml</relativePath>
     </parent>
-    <groupId>nanoseeds.algorithm-template.2018fall.lab3</groupId>
+    <groupId>nanoseeds.algorithm-template.2018fall.lab4</groupId>
     <artifactId>lab_4_1159</artifactId>
     <version>${revision}</version>
     <name>${project.groupId}.${project.artifactId}</name>
