@@ -4,7 +4,7 @@ Hong has learned something about music. He finds that punchline is very importan
 
 If a substring appears 3 times at the beginning, the middle, and the end of a lyric, the substring is a punchline.
 
-But it’s hard for Hong to find a punchline. He wants you to help him to find the longest punchline in a song.
+But it’s hard for Hong to find a punchline. He wants you to help him find the longest punchline in a song.
 
 There is no overlap among the substrings.
 
