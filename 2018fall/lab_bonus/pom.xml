@@ -20,6 +20,7 @@
         <module>lab_bonus_1184</module>
         <module>lab_bonus_1185</module>
         <module>lab_bonus_1186</module>
+        <module>lab_bonus_1187</module>
     </modules>
     <dependencies>
         <dependency>
