@@ -1,4 +1,4 @@
-# 2018fall-lab5
+# 2018fall-lab-bonus
 
 Dear students, welcome to DSAA_Bonus_Lab!
 

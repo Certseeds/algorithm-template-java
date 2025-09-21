@@ -1,4 +1,4 @@
-# 2018fall-lab5
+# 2018fall-lab6
 
 Welcome to (autumn) DSAA lab 6! Enjoy this Lab!
 
