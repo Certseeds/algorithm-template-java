@@ -44,3 +44,5 @@
 *.so            binary
 *.war           binary
 *.jks           binary
+
+*.csv text diff=csv eol=lf
