@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-FileCopyrightText: 2018-2025 nanoseeds
 
 import java.io.BufferedReader;
 import java.io.IOException;
