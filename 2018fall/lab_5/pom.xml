@@ -19,6 +19,7 @@
     <modules>
         <module>lab_5_1145</module>
         <module>lab_5_1146</module>
+        <module>lab_5_1047</module>
     </modules>
     <dependencies>
         <dependency>
