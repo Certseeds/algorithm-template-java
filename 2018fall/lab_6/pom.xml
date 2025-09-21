@@ -4,23 +4,28 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>nanoseeds</groupId>
-        <artifactId>algorithm-template</artifactId>
+        <groupId>nanoseeds.algorithm-template</groupId>
+        <artifactId>2018fall</artifactId>
         <version>${revision}</version>
         <relativePath>./../pom.xml</relativePath>
     </parent>
+
     <packaging>pom</packaging>
-    <groupId>nanoseeds.algorithm-template</groupId>
-    <artifactId>2018fall</artifactId>
+    <groupId>nanoseeds.algorithm-template.2018fall</groupId>
+    <artifactId>lab_6</artifactId>
     <version>${revision}</version>
     <name>${project.groupId}.${project.artifactId}</name>
     <description>${project.groupId}.${project.artifactId}</description>
     <modules>
-        <module>lab_example</module>
-        <module>lab_2</module>
-        <module>lab_3</module>
-        <module>lab_4</module>
-        <module>lab_5</module>
-        <module>lab_6</module>
+        <module>lab_6_1152</module>
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>nanoseeds.algorithm-template</groupId>
+            <artifactId>test_include_package</artifactId>
+            <version>${revision}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build></build>
 </project>

@@ -62,7 +62,7 @@ abababa
   - 前缀：[0, len-1]
   - 中间：[j, j+len-1]
   - 后缀：[n-len, n-1]
-- 为不重叠，需满足 j ≥ len 且 j+len-1 ≤ n-len-1，即中间“起点” j ∈ [len, n-2*len]。
+- 为不重叠，需满足 j ≥ len 且 j+len-1  <=  n-len-1，即中间“起点” j ∈ [len, n-2*len]。
 - 用 Z 判断：存在 j ∈ [len, n-2*len] 使得 z[j] ≥ len，则中间合法出现一次。
 
 算法流程：
