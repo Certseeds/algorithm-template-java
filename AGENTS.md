@@ -41,4 +41,4 @@
 
 3. 执行测试的命令行操作: `mvn -q -pl .\2018fall\lab_{}\lab_{}_{}\ -am test`
 
-4. 在 README.md 中说明死颅
+4. 在 README.md 中说明思路
