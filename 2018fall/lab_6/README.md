@@ -19,10 +19,10 @@ Read the samples carefully can help you understand the problem.
 ## Stack And Queue
 
 + [x] problem A: lab_6_1152
-+ [ ] problem B: lab_6_1153
-+ [ ] problem C: lab_6_1154
-+ [ ] problem D: lab_6_1155
-+ [ ] problem E: lab_6_1156
++ [x] problem B: lab_6_1153
++ [x] problem C: lab_6_1154
++ [x] problem D: lab_6_1155
++ [x] problem E: lab_6_1156
 + [ ] problem F: lab_6_1157
 + [x] problem G: lab_6_1158
 
