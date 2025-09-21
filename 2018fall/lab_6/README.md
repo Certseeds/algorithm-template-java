@@ -23,7 +23,7 @@ Read the samples carefully can help you understand the problem.
 + [x] problem C: lab_6_1154
 + [x] problem D: lab_6_1155
 + [x] problem E: lab_6_1156
-+ [ ] problem F: lab_6_1157
++ [x] problem F: lab_6_1157
 + [x] problem G: lab_6_1158
 
 ## 总体评价
