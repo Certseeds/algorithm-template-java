@@ -39,6 +39,6 @@
 + 使用题目约束, 在 Main.java 的 reader 内部加入 assert 判断, 并尽量对每一个 assert 判断中的 case 添加括号
   + example: `assert ((0 <= x) && (x <= 100));`
 
-3. 执行测试的命令行操作: `mvn -q -pl .\2018fall\lab_{}\lab_{}_{}\ -am test`
+3. 执行测试的命令行操作: `mvn -pl .\2018fall\lab_{}\lab_{}_{} -am test`
 
 4. 在 README.md 中说明思路
