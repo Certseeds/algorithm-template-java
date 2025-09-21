@@ -19,8 +19,8 @@ Read the samples carefully can help you understand the problem.
 ## Stack And Queue
 
 + [x] problem A: lab_5_1145
-+ [ ] problem B: lab_5_1146
-+ [ ] problem C: lab_5_1047
++ [x] problem B: lab_5_1146
++ [x] problem C: lab_5_1047
 + [ ] problem D: lab_5_1148
 + [ ] problem E: lab_5_1149
 + [ ] problem F: lab_5_1150
