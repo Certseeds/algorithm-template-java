@@ -24,7 +24,7 @@ Read the samples carefully can help you understand the problem.
 + [x] problem B: lab_8_1075
 + [x] problem C: lab_8_1123 源码丢失, 无法访问
 + [x] problem D: lab_8_1124
-+ [ ] problem E: lab_8_1125
++ [x] problem E: lab_8_1125
 + [ ] problem F: lab_8_1127
 + [x] problem G: lab_8_1126 源码丢失, 无法访问
 + [ ] problem H: lab_8_1128

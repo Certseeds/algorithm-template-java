@@ -25,6 +25,7 @@
 + README.md内 `Description` 应该为 `## `, Input, Output, Sample Input, Sample Output, HINT 等均改写为 `### `
 + `Sample Input` `Sample Output`内里面的输入输出, 用 ``` log ``` 包裹
 + 注意去除/替换部分非中英文的字符
++ 只进行格式整理, 不对内容进行编辑
 
 2. 定义解答流程
 
