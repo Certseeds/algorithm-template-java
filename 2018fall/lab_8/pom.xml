@@ -20,6 +20,7 @@
         <module>lab_8_1075</module>
         <module>lab_8_1124</module>
         <module>lab_8_1125</module>
+        <module>lab_8_1127</module>
     </modules>
     <dependencies>
         <dependency>
