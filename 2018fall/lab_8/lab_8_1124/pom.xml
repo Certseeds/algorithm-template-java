@@ -10,7 +10,7 @@
         <relativePath>./../pom.xml</relativePath>
     </parent>
     <groupId>nanoseeds.algorithm-template.2018fall.lab_8</groupId>
-    <artifactId>lab_8_1075</artifactId>
+    <artifactId>lab_8_1124</artifactId>
     <version>${revision}</version>
     <name>${project.groupId}.${project.artifactId}</name>
     <description>${project.groupId}.${project.artifactId}</description>

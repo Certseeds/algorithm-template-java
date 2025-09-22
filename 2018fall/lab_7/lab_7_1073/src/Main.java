@@ -147,8 +147,9 @@ public final class Main {
         }
 
         private long findKthMax(TreapNode node, int k) {
-            if (node == null) return -1;
-
+            if (node == null) {
+                return -1;
+            }
             final int rightSize = getSize(node.right);
 
             if (k <= rightSize) {

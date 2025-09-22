@@ -51,25 +51,33 @@ public final class Main {
     }
 
     private static int kthBiggest(final int n, final int K, final int[] a) {
-        if (K <= 0 || K > n) throw new IllegalArgumentException("Invalid K");
+        if (K <= 0 || K > n) {
+            throw new IllegalArgumentException("Invalid K");
+        }
         final int smallThreshold = 5000;
-        int L = n - K + 1; // L-th smallest is K-th largest
+        final int L = n - K + 1; // L-th smallest is K-th largest
         if (K <= smallThreshold) {
             // use min-heap of size K for K-th largest
-            PriorityQueue<Integer> pq = new PriorityQueue<>(K);
+            final PriorityQueue<Integer> pq = new PriorityQueue<>(K);
             for (int v : a) {
-                if (pq.size() < K) pq.offer(v);
-                else if (v > pq.peek()) {
-                    pq.poll(); pq.offer(v);
+                if (pq.size() < K) {
+                    pq.offer(v);
+                } else if (v > pq.peek()) {
+                    pq.poll();
+                    pq.offer(v);
                 }
             }
             return pq.peek();
         } else if (L <= smallThreshold) {
             // find L-th smallest -> use max-heap of size L
-            PriorityQueue<Integer> pq = new PriorityQueue<>((x,y) -> Integer.compare(y,x));
+            final PriorityQueue<Integer> pq = new PriorityQueue<>((x, y) -> Integer.compare(y, x));
             for (int v : a) {
-                if (pq.size() < L) pq.offer(v);
-                else if (v < pq.peek()) { pq.poll(); pq.offer(v); }
+                if (pq.size() < L) {
+                    pq.offer(v);
+                } else if (v < pq.peek()) {
+                    pq.poll();
+                    pq.offer(v);
+                }
             }
             return pq.peek();
         } else {

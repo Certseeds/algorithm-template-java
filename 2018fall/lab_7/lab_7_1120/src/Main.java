@@ -90,9 +90,14 @@ public final class Main {
                         final PriorityQueue<Integer> minHeap = new PriorityQueue<>(M);
                         for (int i = len - 1; i >= 0; i--) {
                             minHeap.offer(seq[i]);
-                            if (minHeap.size() > M) minHeap.poll();
-                            if (minHeap.size() == M) kth[i] = minHeap.peek();
-                            else kth[i] = Integer.MIN_VALUE;
+                            if (minHeap.size() > M) {
+                                minHeap.poll();
+                            }
+                            if (minHeap.size() == M) {
+                                kth[i] = minHeap.peek();
+                            } else {
+                                kth[i] = Integer.MIN_VALUE;
+                            }
                         }
                     }
                     kthByR[r] = kth;

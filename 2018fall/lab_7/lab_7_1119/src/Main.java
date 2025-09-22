@@ -53,12 +53,16 @@ public final class Main {
                         swapped = true;
                     }
                 }
-                if (!swapped) break; // already sorted
+                if (!swapped) {
+                    break; // already sorted
+                }
             }
 
             final StringBuilder sb = new StringBuilder();
             for (int i = 0; i < n; i++) {
-                if (i > 0) sb.append(' ');
+                if (i > 0) {
+                    sb.append(' ');
+                }
                 sb.append(a[i]);
             }
             out.add(sb.toString());
@@ -71,7 +75,7 @@ public final class Main {
         for (final String line : lines) {
             sb.append(line).append('\n');
         }
-        System.out.print(sb.toString());
+        System.out.print(sb);
     }
 
     public static void main(final String[] args) throws IOException {
@@ -96,6 +100,8 @@ public final class Main {
             return st.nextToken();
         }
 
-        public int nextInt() throws IOException { return Integer.parseInt(next()); }
+        public int nextInt() throws IOException {
+            return Integer.parseInt(next());
+        }
     }
 }
