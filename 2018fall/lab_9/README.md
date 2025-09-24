@@ -1,4 +1,4 @@
-# 2018fall-lab9
+## Description
 
 Welcome to (autumn) DSAA lab 9! Enjoy this Lab!
 
@@ -16,7 +16,7 @@ Read the samples carefully can help you understand the problem.
 ## Stack And Queue
 
 + [x] problem A: lab_9_1176
-+ [ ] problem B: lab_9_1177
++ [x] problem B: lab_9_1177
 + [ ] problem C: lab_9_1178
 + [ ] problem D: lab_9_1077
 + [ ] problem E: lab_9_1079
@@ -27,6 +27,5 @@ Read the samples carefully can help you understand the problem.
 + [ ] problem J: lab_9_1182
 + [ ] problem K: lab_9_1083
 + [ ] problem L: lab_9_1085
-+ 
 
 ## 总体评价
