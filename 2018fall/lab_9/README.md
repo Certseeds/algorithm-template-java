@@ -19,9 +19,9 @@ Read the samples carefully can help you understand the problem.
 + [x] problem B: lab_9_1177
 + [x] problem C: lab_9_1178
 + [x] problem D: lab_9_1077
-+ [ ] problem E: lab_9_1079
-+ [ ] problem F: lab_9_1080
-+ [ ] problem G: lab_9_1179
++ [x] problem E: lab_9_1079
++ [x] problem F: lab_9_1080
++ [x] problem G: lab_9_1179
 + [ ] problem H: lab_9_1180
 + [ ] problem I: lab_9_1181
 + [ ] problem J: lab_9_1182
