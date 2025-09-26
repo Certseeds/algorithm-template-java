@@ -22,9 +22,9 @@ Read the samples carefully can help you understand the problem.
 + [x] problem E: lab_9_1079
 + [x] problem F: lab_9_1080
 + [x] problem G: lab_9_1179
-+ [ ] problem H: lab_9_1180
-+ [ ] problem I: lab_9_1181
-+ [ ] problem J: lab_9_1182
++ [x] problem H: lab_9_1180
++ [x] problem I: lab_9_1181
++ [x] problem J: lab_9_1182
 + [ ] problem K: lab_9_1083
 + [ ] problem L: lab_9_1085
 

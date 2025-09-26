@@ -24,6 +24,9 @@
         <module>lab_9_1079</module>
         <module>lab_9_1080</module>
         <module>lab_9_1179</module>
+        <module>lab_9_1180</module>
+        <module>lab_9_1181</module>
+        <module>lab_9_1182</module>
     </modules>
     <dependencies>
         <dependency>
