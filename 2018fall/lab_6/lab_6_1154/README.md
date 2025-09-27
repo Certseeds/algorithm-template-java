@@ -71,4 +71,4 @@ For each "Query", print the minimum element of the set in a line.
   - 当集合为空时, Delete 操作为无操作, Query 返回 -1.
   - 使用 assert 可在开发/测试阶段尽早发现不合法输入.
 
-实现细节请参见 src/Main.java 中的 reader, cal, output 的具体代码。
+实现细节请参见 src/Main.java 中的 reader, cal, output 的具体代码.

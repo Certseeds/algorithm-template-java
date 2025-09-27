@@ -57,4 +57,4 @@ For each case, please print the least swap you need to make the array in ascendi
   - 对于 Java 实现, 建议使用 BufferedReader+StringTokenizer 做快速输入, 并避免递归深度问题.
   - 在开发/调试阶段可开启 assert 检查输入约束, 但在正式提交时需确保 judge 环境允许 assert 或移除断言.
 
-实现细节请参见 `src/Main.java` 中的 reader, cal, output 的具体代码实现。
+实现细节请参见 `src/Main.java` 中的 reader, cal, output 的具体代码实现.

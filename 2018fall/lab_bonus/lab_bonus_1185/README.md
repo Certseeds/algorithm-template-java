@@ -58,4 +58,4 @@ For each case, please print the kth smallest number of them.
   - 对于 Java, 使用 BufferedReader + StringTokenizer 做快速输入; 在处理大 N 时避免在循环内进行字符串拼接.
   - 若对最坏时间敏感, 建议实现 Quickselect 或使用优先队列维护 k 小元素.
 
-实现细节参见 `src/Main.java` 中的 reader, cal, output 实现。
+实现细节参见 `src/Main.java` 中的 reader, cal, output 实现.

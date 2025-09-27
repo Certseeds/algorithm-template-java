@@ -52,7 +52,7 @@ Wrong Anseer
 
 ### part2
 
-重新审题, `to simplify, the strength of the n horses is a permutation of 1 to n`, 说明只是一个{1,2,...,n-1, n}的排列,而不是顺序的. 
+重新审题, `to simplify, the strength of the n horses is a permutation of 1 to n`, 说明只是一个{1,2,...,n-1, n}的排列,而不是顺序的.
 
 这样的话就不是有序的数组了, 不能直接取值来做判断. 也不能累乘, 第一想法是搞一个优先队列,
 

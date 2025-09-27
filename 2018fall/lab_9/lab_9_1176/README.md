@@ -64,23 +64,23 @@ For the third sample, 3 -> 5 -> 1 -> 6 is one path.
 
 - 基本思路
 
-  - 任意两点可直接移动，因此从点 u 到点 v 的最小代价就是两点之间的曼哈顿距离：
-    Dis(u, v) = |x_u - x_v| + |y_u - y_v|。
-  - 对每个查询直接计算上述公式即可，不需要图搜索或复杂预处理。
+  - 任意两点可直接移动, 因此从点 u 到点 v 的最小代价就是两点之间的曼哈顿距离: 
+    Dis(u, v) = |x_u - x_v| + |y_u - y_v|.
+  - 对每个查询直接计算上述公式即可, 不需要图搜索或复杂预处理.
 
 - 实现结构（读-处理-输出分离）
 
-  - `reader()`：使用 BufferedReader + StringTokenizer 按题目格式读取输入，先读 T，然后对每个用例读 N、N 行坐标、Q 和 Q 个查询；把读取的数据封装到 `TestCase` 并返回 `List<TestCase>`。
-  - `cal()`：接收 `List<TestCase>`，对每个查询计算曼哈顿距离，结果收集到 `List<Integer>` 并返回。
-  - `output()`：接收 `Iterable<Integer>` 或 `List<Integer>`，使用 StringBuilder 聚合结果并按行输出，每行末尾包含换行符。
+  - `reader()`: 使用 BufferedReader + StringTokenizer 按题目格式读取输入, 先读 T, 然后对每个用例读 N、N 行坐标、Q 和 Q 个查询; 把读取的数据封装到 `TestCase` 并返回 `List<TestCase>`.
+  - `cal()`: 接收 `List<TestCase>`, 对每个查询计算曼哈顿距离, 结果收集到 `List<Integer>` 并返回.
+  - `output()`: 接收 `Iterable<Integer>` 或 `List<Integer>`, 使用 StringBuilder 聚合结果并按行输出, 每行末尾包含换行符.
 
 - 复杂度
 
-  - 时间复杂度：每个查询 O(1)，总体 O(sum Q)。
-  - 空间复杂度：O(N) 存储点坐标，额外 O(Q) 存储输出结果。
+  - 时间复杂度: 每个查询 O(1), 总体 O(sum Q).
+  - 空间复杂度: O(N) 存储点坐标, 额外 O(Q) 存储输出结果.
 
 - 注意事项
 
-  - 在 `reader()` 中把题目给出的 1-based 索引转为 0-based。
-  - 在 `reader()` 中使用 `assert` 验证输入约束，例如 `assert ((1 <= N) && (N <= 1000));`。
-  - 坐标范围在题目限制内，使用 `int` 足够安全。
+  - 在 `reader()` 中把题目给出的 1-based 索引转为 0-based.
+  - 在 `reader()` 中使用 `assert` 验证输入约束, 例如 `assert ((1 <= N) && (N <= 1000));`.
+  - 坐标范围在题目限制内, 使用 `int` 足够安全.

@@ -2,7 +2,7 @@
 
 Hong likes the Rap of China. He has tried to write some lyrics. However, he didn't know how to judge a lyric.
 
-He thought that the more rhymes the better. 
+He thought that the more rhymes the better.
 
 The score of a lyric is equal to the length of the longest continued rhyming sentences.
 

@@ -79,7 +79,7 @@ jobs:
             !.git/**
             !**/.git/**
           if-no-files-found: error
-          # 压缩只执行一次（由 upload-artifact 完成）；无需预先 zip
+          # 压缩只执行一次（由 upload-artifact 完成）; 无需预先 zip
 
       # Runs a set of commands using the runners shell
       - name: tree

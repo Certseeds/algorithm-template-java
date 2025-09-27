@@ -28,7 +28,7 @@ public final class Main {
         }
     }
 
-    // forward-star (链式前向星) 封装为类，支持 double 权重
+    // forward-star (链式前向星) 封装为类, 支持 double 权重
     private static final class ForwardStar {
         final int n;
         final int maxE;

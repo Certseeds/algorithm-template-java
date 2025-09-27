@@ -55,6 +55,6 @@ For each case please, print the maximum integer of them.
 
 - 实现提示
   - 使用快速输入类 (FastScanner 或 BufferedReader+StringTokenizer) 以避免 IO 瓶颈.
-  - 不要在扫描过程中频繁进行字符串拼接, 最终输出使用 StringBuilder 聚合后一次性打印。
+  - 不要在扫描过程中频繁进行字符串拼接, 最终输出使用 StringBuilder 聚合后一次性打印.
 
-实现细节请参见 `src/Main.java` 中的 reader, cal, output 的具体代码实现。
+实现细节请参见 `src/Main.java` 中的 reader, cal, output 的具体代码实现.

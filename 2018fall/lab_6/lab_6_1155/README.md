@@ -64,4 +64,4 @@ For each case, please print the longest distance between any two nodes of the gi
   - 遵循读-处理-输出分离: reader() 解析并构建 TestCase, cal() 负责计算直径并返回输出行, output() 负责最终打印并保证每行以 '\n' 结尾.
   - 使用迭代 BFS 保证在大输入下的稳定性和性能.
 
-实现细节请参见 src/Main.java 中的 reader, cal, output 的具体代码。
+实现细节请参见 src/Main.java 中的 reader, cal, output 的具体代码.

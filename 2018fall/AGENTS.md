@@ -36,7 +36,7 @@
   + 输出函数 output 接受结果, 尽可能地优化输出
     + 注意不要使用 `if (i < results.size() - 1) {  System.out.print('\n'); } ` 这种方式, 最后一个也要输出换行
     + 使用 `System.out.print('\n')` 来表示换行
-    + 不需要使用 `java.io.PrintWriter`
+  + 不需要使用 `java.io.PrintWriter`等方式实现快写
 + 使用题目约束, 在 Main.java 的 reader 内部加入 assert 判断, 并尽量对每一个 assert 判断中的 case 添加括号
   + example: `assert ((0 <= x) && (x <= 100));`
 

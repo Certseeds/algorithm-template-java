@@ -16,7 +16,7 @@ Each of the next N - 1 lines contain two integers a and b, which means there is 
 
 For each case please, print all the leaves of the given tree, in ascending order.
 
-For the tree has multiple leaf nodes, there is a blank between two leaf nodes, and ‘\n’ at the end of each line.
+For the tree has multiple leaf nodes, there is a blank between two leaf nodes, and '\n' at the end of each line.
 
 ### Sample Input
 

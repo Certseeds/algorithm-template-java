@@ -59,4 +59,4 @@ For each test case, print three lines: the pre order, in order and post order tr
   - 遵循读-处理-输出分离: reader() 负责解析输入并构建 TestCase, cal() 负责计算三种遍历并返回输出行, output() 负责最终打印并保证每行以 '\n' 结尾.
   - 避免深度递归, 所有遍历均采用迭代实现以提高稳定性.
 
-以上为算法核心思路, 实现细节见 src/Main.java 中的 reader, cal, output 的具体代码。
+以上为算法核心思路, 实现细节见 src/Main.java 中的 reader, cal, output 的具体代码.

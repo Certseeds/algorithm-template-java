@@ -8,11 +8,11 @@ public class Main {
     static long[] w;
     static List<Integer>[] adj;
 
-    // 计算以u为根，parent为父节点时的最大Hong Set大小
+    // 计算以u为根, parent为父节点时的最大Hong Set大小
     static int dfs(int u, int parent, long minWeight) {
-        // 如果当前节点权重小于最小权重要求，不能作为Hong Set的一部分
+        // 如果当前节点权重小于最小权重要求, 不能作为Hong Set的一部分
         if (w[u] < minWeight) {
-            // 但可以作为路径上的中间节点，继续向下搜索
+            // 但可以作为路径上的中间节点, 继续向下搜索
             int maxFromChildren = 0;
             for (int v : adj[u]) {
                 if (v != parent) {
@@ -33,7 +33,7 @@ public class Main {
             }
         }
 
-        // 对每个有效子节点，计算其贡献
+        // 对每个有效子节点, 计算其贡献
         for (int v : validChildren) {
             result += dfs(v, u, w[u]);
         }
