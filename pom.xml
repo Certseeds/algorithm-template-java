@@ -107,6 +107,16 @@
         <module>include</module>
         <module>lab_welcome</module>
         <module>2018fall</module>
+        <module>lab_01</module>
+        <module>lab_02</module>
+        <module>lab_03</module>
+        <module>lab_04</module>
+        <module>lab_05</module>
+        <module>lab_06</module>
+        <module>lab_07</module>
+        <module>lab_08</module>
+        <module>lab_09</module>
+        <module>lab_bonus</module>
     </modules>
     <repositories>
         <repository>
