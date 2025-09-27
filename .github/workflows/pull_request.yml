@@ -36,7 +36,7 @@ jobs:
       - name: Use java and javac
         run: javac -version; java -version
 
-      - name: windows clean build test
+      - name: ubuntu clean build test
         run: mvn clean compile test
 
   # This workflow contains a single job called "build"
