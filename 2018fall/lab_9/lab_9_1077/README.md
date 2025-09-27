@@ -10,7 +10,9 @@ There are total m + K bridges you can choose.
 
 If you cannot make all buildings  connected by these m+K bridges, print -1, otherwise, print the minimized total cost.
 
-Note: The total cost is the cost of the remaining bridges after you insert.
+> [!Note]
+> 
+> The total cost is the cost of the remaining bridges after you insert.
 
 ### Input
 

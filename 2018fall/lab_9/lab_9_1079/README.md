@@ -12,7 +12,9 @@ Besides, the information may be wrong. If you cannot find such a way to select c
 
 The courses are labeled from 1 to n.
 
-Note: the input guarantees that no courses are required the same course twice.
+> [!Note]
+> 
+> the input guarantees that no courses are required the same course twice.
 
 ### Input
 

@@ -2,7 +2,9 @@
 
 In a graph G, if we can find a path from node x to node y, we say that x can reach y. Now you are given a directed graph G with n nodes and m edges. Besides, there are Q queries. Each query will contain two integers x and y. If x can reach y, print YES. Otherwise, print NO.
 
-Note: We guarantee there is at most one edge from node i to node j.
+> [!Note]
+> 
+> We guarantee there is at most one edge from node i to node j.
 
 ### Input
 

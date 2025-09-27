@@ -10,7 +10,9 @@ Could you help him to find the minimum time cost?
 
 All cities are labeled from 1 to n.
 
-Note: There may be multiple roads between some cities. Alice can also move.
+> [!Note]
+> 
+> There may be multiple roads between some cities. Alice can also move.
 
 ### Input
 
