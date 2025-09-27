@@ -16,7 +16,8 @@
 *.ps1 text eol=crlf
 
 # Java sources
-*.java          text diff=java  
+*.java          text diff=java
+*.cpp           text diff=cpp eol=lf
 *.gradle        text diff=java
 *.gradle.kts    text diff=java
 
@@ -44,3 +45,5 @@
 *.so            binary
 *.war           binary
 *.jks           binary
+
+*.csv text diff=csv eol=lf

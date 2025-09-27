@@ -2,11 +2,16 @@
 
 本repo的目的: 提供一个
 
-+ 较为简单
 + 开箱即用
 + 带有测试
-+ 针对需要提交 OJ 的 lab 设计的, 基于 JDK11 的代码模板仓库, 方便同学们进行课程的学习
-+ 同时会提供一些基本的算法框架
++ LLM 友好
++ 针对 OJ 需要单文件提交设计的
++ 使用 JDK11 语法的
++ 提供一些基本的算法框架
+
+代码模板仓库, 供大家在 SUSTech 的各类算法课程中使用
+
+为每一个题目分配独立的编译单元, 专有路径放置测试用例, 并提供重定向读写功能, 可以一键运行多组测试用例
 
 ## 如何使用
 
@@ -38,9 +43,9 @@ OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
 
 #### Java 版本策略(重要)
 
-+ 本地开发与测试：推荐使用 JDK 21(IDEA 运行/调试更舒适)
-+ 构建与提交：项目使用 Maven 以 Java 11 为编译目标(`--release 11`), 确保与远程 OJ(JDK 11)兼容
-+ 说明：即使本地安装的是 JDK21, Maven 根据 `release=11` 仍会按照JDK11的API对源文件进行约束, 不用担心用了新的API, OJ上无法编译
++ 本地开发与测试: 推荐使用 JDK 21(IDEA 运行/调试更舒适)
++ 构建与提交: 项目使用 Maven 以 Java 11 为编译目标(`--release 11`), 确保与远程 OJ(JDK 11)兼容
++ 说明: 即使本地安装的是 JDK21, Maven 根据 `release=11` 仍会按照JDK11的API对源文件进行约束, 不用担心用了新的API, OJ上无法编译
 
 ### 下载使用
 
@@ -55,7 +60,7 @@ OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
 3. 修改 `lab_welcome/lab_welcome_a/src/Main.java` 的 `cal` 实现, 重新运行测试验证
 4. 提交到 OJ 时, 复制该题目的 `Main.java` 全文(包含嵌入的快读类)进行提交
 
-可选命令行(PowerShell)：
+命令行操作:
 
 ```powershell
 # 运行根项目所有测试
@@ -103,7 +108,7 @@ mvn -q -pl lab_welcome/lab_welcome_a -am test
   + test_2 则优化了一些, 但是还是比较麻烦, for循环还需要了解测试样例的个数
   + test_3 with tuple 则最优雅, 修改起来的难度最小
   + PS: 此处注意, 引用文件的相对路径
-  + PS2: 模版文件中已经将前面`resources/`预制好, 只需要填写文件名
+  + PS2: 模版文件中已经将前面`resources/`预置好, 只需要填写文件名
 
 ### 文本输入输出重定向 part2
 
@@ -120,14 +125,14 @@ mvn -q -pl lab_welcome/lab_welcome_a -am test
   ```
 
   这样就将标准输出重定向到了`01.test.out`中, 并与`01.data.out`比对
-  + 这里需要考虑的是, 谨慎使用`println()`, 因为`println()`的输出与平台有关；推荐使用 `System.out.print('\n')` 来对齐与 data.out 的比较
+  + 这里需要考虑的是, 谨慎使用`println()`, 因为`println()`的输出与平台有关; 推荐使用 `System.out.print('\n')` 来对齐与 data.out 的比较
 
 ### 快读
 
 + 一般来说, 题目不会卡读入
 + 但是, 当数据量上来之后, 读取时间不容小看
 + 所以可以使用每个文件中自带的 Reader / FastReader 类来进行快读
-+ 注意：多数 OJ 仅允许单文件提交, 因此快读类需嵌入到 `Main.java` 中, 不能抽到外部文件依赖
++ 注意: 多数 OJ 仅允许单文件提交, 因此快读类需嵌入到 `Main.java` 中, 不能抽到外部文件依赖
 
 ## 实现细节
 

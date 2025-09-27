@@ -19,5 +19,12 @@
         <module>lab_example</module>
         <module>lab_2</module>
         <module>lab_3</module>
+        <module>lab_4</module>
+        <module>lab_5</module>
+        <module>lab_6</module>
+        <module>lab_bonus</module>
+        <module>lab_7</module>
+        <module>lab_8</module>
+        <module>lab_9</module>
     </modules>
 </project>

@@ -95,7 +95,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.compiler.plugin.version}</version>
                 <configuration>
-                    <!-- 这个配置是可选的，因为插件默认会读取 maven.compiler.release 属性 -->
+                    <!-- 这个配置是可选的, 因为插件默认会读取 maven.compiler.release 属性 -->
                     <release>${java.version}</release><!-- 但显式声明可以提高可读性 -->
                 </configuration>
             </plugin>

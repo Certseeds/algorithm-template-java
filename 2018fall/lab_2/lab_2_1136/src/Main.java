@@ -105,7 +105,7 @@ public final class Main {
                 while (begin < end) { // 还是bisect
                     final int mid = (end - begin) / 2 + begin;
                     final int result = cal(one, mid);
-                    // 可以认为是在[begin,end)间, 只有两个值， 一个-1，一个1, 要寻找的是最左边的一个1
+                    // 可以认为是在[begin,end)间, 只有两个值,  一个-1, 一个1, 要寻找的是最左边的一个1
                     if (result == -1) {
                         begin = mid + 1;
                     } else if (result == 1) {

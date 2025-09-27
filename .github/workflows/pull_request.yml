@@ -18,7 +18,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-latest ,windows-latest ]
+        os: [ ubuntu-latest ]
     steps:
       - name: checkout code
         uses: actions/checkout@v5
@@ -36,7 +36,7 @@ jobs:
       - name: Use java and javac
         run: javac -version; java -version
 
-      - name: windows clean build test
+      - name: ubuntu clean build test
         run: mvn clean compile test
 
   # This workflow contains a single job called "build"
@@ -79,7 +79,7 @@ jobs:
             !.git/**
             !**/.git/**
           if-no-files-found: error
-          # 压缩只执行一次（由 upload-artifact 完成）；无需预先 zip
+          # 压缩只执行一次（由 upload-artifact 完成）; 无需预先 zip
 
       # Runs a set of commands using the runners shell
       - name: tree

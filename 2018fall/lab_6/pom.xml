@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>nanoseeds.algorithm-template</groupId>
+        <artifactId>2018fall</artifactId>
+        <version>${revision}</version>
+        <relativePath>./../pom.xml</relativePath>
+    </parent>
+
+    <packaging>pom</packaging>
+    <groupId>nanoseeds.algorithm-template.2018fall</groupId>
+    <artifactId>lab_6</artifactId>
+    <version>${revision}</version>
+    <name>${project.groupId}.${project.artifactId}</name>
+    <description>${project.groupId}.${project.artifactId}</description>
+    <modules>
+        <module>lab_6_1152</module>
+        <module>lab_6_1153</module>
+        <module>lab_6_1154</module>
+        <module>lab_6_1155</module>
+        <module>lab_6_1156</module>
+        <module>lab_6_1157</module>
+        <module>lab_6_1158</module>
+    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>nanoseeds.algorithm-template</groupId>
+            <artifactId>test_include_package</artifactId>
+            <version>${revision}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build></build>
+</project>
