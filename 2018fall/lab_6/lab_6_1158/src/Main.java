@@ -4,68 +4,111 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class Main {
-    static int n;
-    static long[] w;
-    static Graph graph;
-
-    // 计算以u为根, parent为父节点时的最大Hong Set大小
-    static int dfs(int u, int parent, long minWeight) {
-        // 如果当前节点权重小于最小权重要求, 不能作为Hong Set的一部分
-        if (w[u] < minWeight) {
-            // 但可以作为路径上的中间节点, 继续向下搜索
-            int maxFromChildren = 0;
-            for (int ei = graph.head[u]; ei != -1; ei = graph.next[ei]) {
-                final int v = graph.to[ei];
-                if (v != parent) {
-                    maxFromChildren = Math.max(maxFromChildren, dfs(v, u, minWeight));
-                }
-            }
-            return maxFromChildren;
-        }
-
-        // u可以作为Hong Set的一部分
-        int result = 1; // 包含u本身
-
-        // 遍历所有可以加入的子节点并累加贡献
-        for (int ei = graph.head[u]; ei != -1; ei = graph.next[ei]) {
-            final int v = graph.to[ei];
-            if (v != parent && w[v] > w[u]) {
-                result += dfs(v, u, w[u]);
-            }
-        }
-
-        return result;
-    }
 
     public static void main(String[] args) {
-        final var sc = new Reader();
-        int T = sc.nextInt();
+        final Reader reader = new Reader();
+        final List<TestCase> testCases = readInput(reader);
+        final List<Integer> answers = solveAll(testCases);
+        writeOutput(answers);
+    }
 
-        while (T-- > 0) {
-            n = sc.nextInt();
-            w = new long[n + 1];
-            graph = new Graph(n, (n - 1) << 1);
-
+    private static List<TestCase> readInput(Reader reader) {
+        final int T = reader.nextInt();
+        final List<TestCase> testCases = new ArrayList<>(T);
+        for (int tc = 0; tc < T; tc++) {
+            final int n = reader.nextInt();
+            final long[] weights = new long[n + 1];
             for (int i = 1; i <= n; i++) {
-                w[i] = sc.nextLong();
+                weights[i] = reader.nextLong();
             }
-
+            final int[] edgeU = new int[Math.max(0, n - 1)];
+            final int[] edgeV = new int[Math.max(0, n - 1)];
             for (int i = 0; i < n - 1; i++) {
-                int a = sc.nextInt();
-                int b = sc.nextInt();
-                graph.addUndirectedEdge(a, b);
+                edgeU[i] = reader.nextInt();
+                edgeV[i] = reader.nextInt();
             }
+            testCases.add(new TestCase(n, weights, edgeU, edgeV));
+        }
+        return testCases;
+    }
 
+    private static List<Integer> solveAll(List<TestCase> testCases) {
+        final List<Integer> answers = new ArrayList<>(testCases.size());
+        for (final TestCase testCase : testCases) {
+            answers.add(solveCase(testCase));
+        }
+        return answers;
+    }
+
+    private static int solveCase(TestCase testCase) {
+        return new HongSetSolver(testCase).solve();
+    }
+
+    private static void writeOutput(List<Integer> answers) {
+        final StringBuilder sb = new StringBuilder();
+        for (final int answer : answers) {
+            sb.append(answer).append('\n');
+        }
+        System.out.print(sb);
+    }
+
+    private static final class TestCase {
+        final int n;
+        final long[] weights;
+        final int[] edgeU;
+        final int[] edgeV;
+
+        TestCase(int n, long[] weights, int[] edgeU, int[] edgeV) {
+            this.n = n;
+            this.weights = weights;
+            this.edgeU = edgeU;
+            this.edgeV = edgeV;
+        }
+    }
+
+    private static final class HongSetSolver {
+        private final int n;
+        private final long[] weights;
+        private final Graph graph;
+
+        HongSetSolver(TestCase testCase) {
+            this.n = testCase.n;
+            this.weights = testCase.weights;
+            this.graph = new Graph(testCase.n, Math.max(0, (testCase.n - 1) << 1));
+            for (int i = 0; i < testCase.edgeU.length; i++) {
+                graph.addUndirectedEdge(testCase.edgeU[i], testCase.edgeV[i]);
+            }
+        }
+
+        int solve() {
             int maxSize = 0;
-
-            // 枚举每个节点作为Hong Set的起始节点
-            for (int i = 1; i <= n; i++) {
-                final int size = dfs(i, -1, w[i]);
+            for (int u = 1; u <= n; u++) {
+                final int size = dfs(u, -1, weights[u]);
                 maxSize = Math.max(maxSize, size);
             }
+            return maxSize;
+        }
 
-            System.out.print(maxSize);
-            System.out.print('\n');
+        private int dfs(int u, int parent, long minWeight) {
+            if (weights[u] < minWeight) {
+                int maxFromChildren = 0;
+                for (int ei = graph.head[u]; ei != -1; ei = graph.next[ei]) {
+                    final int v = graph.to[ei];
+                    if (v != parent) {
+                        maxFromChildren = Math.max(maxFromChildren, dfs(v, u, minWeight));
+                    }
+                }
+                return maxFromChildren;
+            }
+
+            int result = 1;
+            for (int ei = graph.head[u]; ei != -1; ei = graph.next[ei]) {
+                final int v = graph.to[ei];
+                if (v != parent && weights[v] > weights[u]) {
+                    result += dfs(v, u, weights[u]);
+                }
+            }
+            return result;
         }
     }
 
