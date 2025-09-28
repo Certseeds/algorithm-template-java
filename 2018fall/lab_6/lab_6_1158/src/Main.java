@@ -6,7 +6,7 @@ import java.util.*;
 public class Main {
     static int n;
     static long[] w;
-    static List<Integer>[] adj;
+    static Graph graph;
 
     // 计算以u为根, parent为父节点时的最大Hong Set大小
     static int dfs(int u, int parent, long minWeight) {
@@ -14,7 +14,8 @@ public class Main {
         if (w[u] < minWeight) {
             // 但可以作为路径上的中间节点, 继续向下搜索
             int maxFromChildren = 0;
-            for (int v : adj[u]) {
+            for (int ei = graph.head[u]; ei != -1; ei = graph.next[ei]) {
+                final int v = graph.to[ei];
                 if (v != parent) {
                     maxFromChildren = Math.max(maxFromChildren, dfs(v, u, minWeight));
                 }
@@ -25,17 +26,12 @@ public class Main {
         // u可以作为Hong Set的一部分
         int result = 1; // 包含u本身
 
-        // 收集所有可以加入的子节点
-        final List<Integer> validChildren = new ArrayList<>();
-        for (int v : adj[u]) {
+        // 遍历所有可以加入的子节点并累加贡献
+        for (int ei = graph.head[u]; ei != -1; ei = graph.next[ei]) {
+            final int v = graph.to[ei];
             if (v != parent && w[v] > w[u]) {
-                validChildren.add(v);
+                result += dfs(v, u, w[u]);
             }
-        }
-
-        // 对每个有效子节点, 计算其贡献
-        for (int v : validChildren) {
-            result += dfs(v, u, w[u]);
         }
 
         return result;
@@ -48,18 +44,16 @@ public class Main {
         while (T-- > 0) {
             n = sc.nextInt();
             w = new long[n + 1];
-            adj = new List[n + 1];
+            graph = new Graph(n, (n - 1) << 1);
 
             for (int i = 1; i <= n; i++) {
                 w[i] = sc.nextLong();
-                adj[i] = new ArrayList<>();
             }
 
             for (int i = 0; i < n - 1; i++) {
                 int a = sc.nextInt();
                 int b = sc.nextInt();
-                adj[a].add(b);
-                adj[b].add(a);
+                graph.addUndirectedEdge(a, b);
             }
 
             int maxSize = 0;
@@ -102,5 +96,30 @@ public class Main {
             return Long.parseLong(next());
         }
 
+    }
+
+    private static final class Graph {
+        final int[] head;
+        final int[] to;
+        final int[] next;
+        private int ptr = 0;
+
+        Graph(final int n, final int capacity) {
+            head = new int[n + 1];
+            Arrays.fill(head, -1);
+            to = new int[capacity];
+            next = new int[capacity];
+        }
+
+        void addUndirectedEdge(final int u, final int v) {
+            addEdge(u, v);
+            addEdge(v, u);
+        }
+
+        private void addEdge(final int u, final int v) {
+            to[ptr] = v;
+            next[ptr] = head[u];
+            head[u] = ptr++;
+        }
     }
 }

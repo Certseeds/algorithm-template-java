@@ -12,8 +12,10 @@ public final class Main {
         int n, m;
         int[] U, V;
         long[] W;
+
         TestCase(final int n, final int m) {
-            this.n = n; this.m = m;
+            this.n = n;
+            this.m = m;
             this.U = new int[m];
             this.V = new int[m];
             this.W = new long[m];
@@ -34,7 +36,9 @@ public final class Main {
                 final int x = in.nextInt();
                 final int y = in.nextInt();
                 final long z = in.nextInt();
-                t.U[i] = x; t.V[i] = y; t.W[i] = z;
+                t.U[i] = x;
+                t.V[i] = y;
+                t.W[i] = z;
             }
             tests.add(t);
         }
@@ -67,40 +71,44 @@ public final class Main {
         final int n = tc.n, m = tc.m;
 
         // build adjacency: store neighbor and edge-id
-        final ArrayList<int[]>[] adj = new ArrayList[n + 1];
-        for (int i = 1; i <= n; i++) adj[i] = new ArrayList<>();
+        final Graph graph = new Graph(n, m << 1);
         for (int i = 0; i < m; i++) {
             final int u = tc.U[i], v = tc.V[i];
-            adj[u].add(new int[]{v, i});
-            adj[v].add(new int[]{u, i});
+            graph.addEdge(u, v, i);
+            graph.addEdge(v, u, i);
         }
 
-        // 1) find bridges via DFS (recursive; safe in most cases; could be replaced by iterative if needed)
+        // 1) find bridges via DFS (recursive; safe in most cases; could be replaced by
+        // iterative if needed)
         final boolean[] isBridge = new boolean[m];
         final int[] tin = new int[n + 1];
         final int[] low = new int[n + 1];
         int timer = 1;
         for (int s = 1; s <= n; s++) {
-            if (tin[s] != 0) continue;
-            timer = dfsBridge(s, -1, timer, adj, tin, low, isBridge);
+            if (tin[s] != 0)
+                continue;
+            timer = dfsBridge(s, -1, timer, graph, tin, low, isBridge);
         }
 
-        // 2) components in the non-bridge subgraph (each is a simple cycle or singleton)
+        // 2) components in the non-bridge subgraph (each is a simple cycle or
+        // singleton)
         final int[] compId = new int[n + 1];
         Arrays.fill(compId, -1);
-        final ArrayList<ArrayList<Integer>> comps = new ArrayList<>();
+        final List<List<Integer>> comps = new ArrayList<>();
         for (int i = 1; i <= n; i++) {
-            if (compId[i] != -1) continue;
+            if (compId[i] != -1)
+                continue;
             final ArrayDeque<Integer> q = new ArrayDeque<>();
             q.add(i);
             compId[i] = comps.size();
-            final ArrayList<Integer> lst = new ArrayList<>();
+            final List<Integer> lst = new ArrayList<>();
             lst.add(i);
             while (!q.isEmpty()) {
                 final int u = q.poll();
-                for (final int[] e : adj[u]) {
-                    final int v = e[0], id = e[1];
-                    if (isBridge[id]) continue;
+                for (int ei = graph.head[u]; ei != -1; ei = graph.next[ei]) {
+                    final int v = graph.to[ei], id = graph.edgeId[ei];
+                    if (isBridge[id])
+                        continue;
                     if (compId[v] == -1) {
                         compId[v] = compId[u];
                         q.add(v);
@@ -113,33 +121,43 @@ public final class Main {
 
         final int compCnt = comps.size();
         final int[] compSize = new int[compCnt];
-        for (int cid = 0; cid < compCnt; cid++) compSize[cid] = comps.get(cid).size();
+        for (int cid = 0; cid < compCnt; cid++)
+            compSize[cid] = comps.get(cid).size();
 
         long ans = 0L;
 
         // 3) cycle components contribution
         for (int cid = 0; cid < compCnt; cid++) {
-            final ArrayList<Integer> vs = comps.get(cid);
-            if (vs.size() < 3) continue; // singleton or not a cycle
+            final List<Integer> vs = comps.get(cid);
+            if (vs.size() < 3)
+                continue; // singleton or not a cycle
             // ensure it's a simple cycle (degree 2 in non-bridge subgraph)
             boolean isCycle = true;
             for (final int u : vs) {
                 int deg = 0;
-                for (final int[] e : adj[u]) if (!isBridge[e[1]]) deg++;
-                if (deg != 2) { isCycle = false; break; }
+                for (int ei = graph.head[u]; ei != -1; ei = graph.next[ei])
+                    if (!isBridge[graph.edgeId[ei]])
+                        deg++;
+                if (deg != 2) {
+                    isCycle = false;
+                    break;
+                }
             }
-            if (!isCycle) continue;
+            if (!isCycle)
+                continue;
 
-            final long[] cycW = buildCycleWeights(vs.get(0), adj, isBridge, tc.W);
-            if (cycW == null || cycW.length < 3) continue;
+            final long[] cycW = buildCycleWeights(graph, vs.get(0), isBridge, tc.W);
+            if (cycW == null || cycW.length < 3)
+                continue;
 
             ans += sumCycleOrderedMinimaUpToKMinus1(cycW); // equals unordered pair sum of two arc minima
         }
 
         // 4) bridge-tree contribution via DSU in descending weights
-        final ArrayList<BridgeEdge> bridges = new ArrayList<>();
+        final List<BridgeEdge> bridges = new ArrayList<>();
         for (int i = 0; i < m; i++) {
-            if (!isBridge[i]) continue;
+            if (!isBridge[i])
+                continue;
             final int cu = compId[tc.U[i]];
             final int cv = compId[tc.V[i]];
             bridges.add(new BridgeEdge(cu, cv, tc.W[i]));
@@ -148,12 +166,14 @@ public final class Main {
 
         final DSU dsu = new DSU(compCnt);
         final long[] size = new long[compCnt];
-        for (int i = 0; i < compCnt; i++) size[i] = compSize[i];
+        for (int i = 0; i < compCnt; i++)
+            size[i] = compSize[i];
 
         for (final BridgeEdge be : bridges) {
             final int ru = dsu.find(be.u);
             final int rv = dsu.find(be.v);
-            if (ru == rv) continue;
+            if (ru == rv)
+                continue;
             ans += be.w * size[ru] * size[rv];
             final int nr = dsu.union(ru, rv);
             size[nr] = size[ru] + size[rv];
@@ -163,16 +183,18 @@ public final class Main {
     }
 
     private static int dfsBridge(final int u, final int pe, int timer,
-                                 final ArrayList<int[]>[] adj, final int[] tin,
-                                 final int[] low, final boolean[] isBridge) {
+            final Graph graph, final int[] tin,
+            final int[] low, final boolean[] isBridge) {
         tin[u] = low[u] = timer++;
-        for (final int[] e : adj[u]) {
-            final int v = e[0], id = e[1];
-            if (id == pe) continue;
+        for (int ei = graph.head[u]; ei != -1; ei = graph.next[ei]) {
+            final int v = graph.to[ei], id = graph.edgeId[ei];
+            if (id == pe)
+                continue;
             if (tin[v] == 0) {
-                timer = dfsBridge(v, id, timer, adj, tin, low, isBridge);
+                timer = dfsBridge(v, id, timer, graph, tin, low, isBridge);
                 low[u] = Math.min(low[u], low[v]);
-                if (low[v] > tin[u]) isBridge[id] = true;
+                if (low[v] > tin[u])
+                    isBridge[id] = true;
             } else {
                 low[u] = Math.min(low[u], tin[v]);
             }
@@ -181,36 +203,54 @@ public final class Main {
     }
 
     // Traverse the cycle and collect edge weights in order
-    private static long[] buildCycleWeights(final int start,
-                                            final ArrayList<int[]>[] adj,
-                                            final boolean[] isBridge,
-                                            final long[] edgeW) {
+    private static long[] buildCycleWeights(final Graph graph, final int start,
+            final boolean[] isBridge,
+            final long[] edgeW) {
         int prev = -1;
         int curr = start;
-        final ArrayList<Long> ws = new ArrayList<>();
+        final List<Long> ws = new ArrayList<>();
         // check degree 2 at start in non-bridge subgraph
         int deg = 0;
-        for (final int[] e : adj[start]) if (!isBridge[e[1]]) deg++;
-        if (deg != 2) return null;
+        for (int ei = graph.head[start]; ei != -1; ei = graph.next[ei])
+            if (!isBridge[graph.edgeId[ei]])
+                deg++;
+        if (deg != 2)
+            return null;
 
         while (true) {
             int next = -1, eid = -1, cnt = 0;
-            for (final int[] e : adj[curr]) {
-                final int v = e[0], id = e[1];
-                if (isBridge[id]) continue;
+            int fallbackNext = -1, fallbackEdge = -1;
+            for (int ei = graph.head[curr]; ei != -1; ei = graph.next[ei]) {
+                final int v = graph.to[ei], id = graph.edgeId[ei];
+                if (isBridge[id])
+                    continue;
                 cnt++;
-                if (v != prev) { next = v; eid = id; }
-                // if v == prev, keep as fallback in case the other edge missing (shouldn't happen in cactus)
-                if (next == -1) { next = v; eid = id; }
+                if (v != prev) {
+                    next = v;
+                    eid = id;
+                }
+                // if v == prev, keep as fallback in case the other edge missing (shouldn't
+                // happen in cactus)
+                if (fallbackNext == -1) {
+                    fallbackNext = v;
+                    fallbackEdge = id;
+                }
             }
-            if (cnt != 2) return null; // not a simple cycle
+            if (cnt != 2)
+                return null; // not a simple cycle
+            if (next == -1) {
+                next = fallbackNext;
+                eid = fallbackEdge;
+            }
             ws.add(edgeW[eid]);
             prev = curr;
             curr = next;
-            if (curr == start) break;
+            if (curr == start)
+                break;
         }
         final long[] arr = new long[ws.size()];
-        for (int i = 0; i < ws.size(); i++) arr[i] = ws.get(i);
+        for (int i = 0; i < ws.size(); i++)
+            arr[i] = ws.get(i);
         return arr;
     }
 
@@ -219,7 +259,8 @@ public final class Main {
         final int k = w.length;
         final int N = 2 * k;
         final long[] W2 = new long[N];
-        for (int i = 0; i < N; i++) W2[i] = w[i % k];
+        for (int i = 0; i < N; i++)
+            W2[i] = w[i % k];
 
         // prev strictly less, next less-or-equal in doubled array
         final int[] prevLess = new int[N];
@@ -227,13 +268,15 @@ public final class Main {
 
         final ArrayDeque<Integer> st = new ArrayDeque<>();
         for (int i = 0; i < N; i++) {
-            while (!st.isEmpty() && W2[st.peek()] >= W2[i]) st.pop();
+            while (!st.isEmpty() && W2[st.peek()] >= W2[i])
+                st.pop();
             prevLess[i] = st.isEmpty() ? -1 : st.peek();
             st.push(i);
         }
         st.clear();
         for (int i = N - 1; i >= 0; i--) {
-            while (!st.isEmpty() && W2[st.peek()] > W2[i]) st.pop();
+            while (!st.isEmpty() && W2[st.peek()] > W2[i])
+                st.pop();
             nextLE[i] = st.isEmpty() ? N : st.peek();
             st.push(i);
         }
@@ -246,14 +289,17 @@ public final class Main {
             // allowable window starts s are in [0..k-1]
             final int RB = Math.min(i, k - 1);
             final int LB = Math.max(Math.max(prevLess[i] + 1, i - (K - 1)), 0);
-            if (LB > RB) continue;
+            if (LB > RB)
+                continue;
 
-            final int d0 = i - RB;           // smallest d = i - s
-            final int x = RB - LB + 1;       // number of s (and d) values
-            final int P = K - B;             // boundary where min(B, K - d) switches
+            final int d0 = i - RB; // smallest d = i - s
+            final int x = RB - LB + 1; // number of s (and d) values
+            final int P = K - B; // boundary where min(B, K - d) switches
             int p = P - d0 + 1;
-            if (p < 0) p = 0;
-            if (p > x) p = x;
+            if (p < 0)
+                p = 0;
+            if (p > x)
+                p = x;
             final int m = x - p;
 
             long sum = 0L;
@@ -265,28 +311,78 @@ public final class Main {
             resUpToK += W2[i] * sum;
         }
 
-        // subtract length-k arcs: exactly k arcs, each minimum is the global minimum edge on the cycle
+        // subtract length-k arcs: exactly k arcs, each minimum is the global minimum
+        // edge on the cycle
         long minW = Long.MAX_VALUE;
-        for (int i = 0; i < k; i++) minW = Math.min(minW, w[i]);
+        for (int i = 0; i < k; i++)
+            minW = Math.min(minW, w[i]);
 
         return resUpToK - minW * k;
     }
 
+    private static final class Graph {
+        final int[] head;
+        final int[] to;
+        final int[] edgeId;
+        final int[] next;
+        private int ptr = 0;
+
+        Graph(final int n, final int capacity) {
+            head = new int[n + 1];
+            Arrays.fill(head, -1);
+            to = new int[capacity];
+            edgeId = new int[capacity];
+            next = new int[capacity];
+        }
+
+        void addEdge(final int u, final int v, final int eid) {
+            to[ptr] = v;
+            edgeId[ptr] = eid;
+            next[ptr] = head[u];
+            head[u] = ptr++;
+        }
+    }
+
     private static final class BridgeEdge {
-        int u, v; long w;
-        BridgeEdge(final int u, final int v, final long w) { this.u = u; this.v = v; this.w = w; }
+        int u, v;
+        long w;
+
+        BridgeEdge(final int u, final int v, final long w) {
+            this.u = u;
+            this.v = v;
+            this.w = w;
+        }
     }
 
     private static final class DSU {
         int[] p, r;
-        DSU(final int n) { p = new int[n]; r = new int[n]; for (int i = 0; i < n; i++) p[i] = i; }
-        int find(final int x) { return p[x] == x ? x : (p[x] = find(p[x])); }
+
+        DSU(final int n) {
+            p = new int[n];
+            r = new int[n];
+            for (int i = 0; i < n; i++)
+                p[i] = i;
+        }
+
+        int find(final int x) {
+            return p[x] == x ? x : (p[x] = find(p[x]));
+        }
+
         int union(final int a, final int b) {
             int ra = find(a), rb = find(b);
-            if (ra == rb) return ra;
-            if (r[ra] < r[rb]) { p[ra] = rb; return rb; }
-            else if (r[ra] > r[rb]) { p[rb] = ra; return ra; }
-            else { p[rb] = ra; r[ra]++; return ra; }
+            if (ra == rb)
+                return ra;
+            if (r[ra] < r[rb]) {
+                p[ra] = rb;
+                return rb;
+            } else if (r[ra] > r[rb]) {
+                p[rb] = ra;
+                return ra;
+            } else {
+                p[rb] = ra;
+                r[ra]++;
+                return ra;
+            }
         }
     }
 
@@ -302,7 +398,8 @@ public final class Main {
         public String next() throws IOException {
             while (st == null || !st.hasMoreElements()) {
                 final String line = br.readLine();
-                if (line == null) return "";
+                if (line == null)
+                    return "";
                 st = new StringTokenizer(line);
             }
             return st.nextToken();
