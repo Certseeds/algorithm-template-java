@@ -5,8 +5,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
 import tests.Pair;
 import tests.Redirect;
+import tests.Sequence;
 
 import java.io.IOException;
+import java.util.List;
 
 @Slf4j
 public final class MainTest {
@@ -30,34 +32,28 @@ public final class MainTest {
 
     @Test
     public void test_cal() throws IOException {
-        try (Redirect redirect = Redirect.from(DATA_PATH, "01.data.in", "01.test.out")) {
-            Main.output(Main.cal(Main.read()));
-            final Pair<String, String> p = redirect.compare_double("01.data.out", "01.test.out");
-            Assertions.assertEquals(p.getFirst().length(), p.getSecond().length());
-            Assertions.assertEquals(p.getFirst(), p.getSecond());
-        }
-
-        try (Redirect redirect = Redirect.from(DATA_PATH, "02.data.in", "02.test.out")) {
-            Main.output(Main.cal(Main.reader()));
-            final Pair<String, String> p = redirect.compare_double("02.data.out", "02.test.out");
-            Assertions.assertEquals(p.getFirst().length(), p.getSecond().length());
-            Assertions.assertEquals(p.getFirst(), p.getSecond());
+        final List<Sequence.FileTriple> files = new Sequence(1, 9).getFiles(true);
+        for (Sequence.FileTriple file : files) {
+            try (Redirect redirect = Redirect.from(DATA_PATH, file.datain(), file.testout())) {
+                log.info("{}", file);
+                Main.output(Main.cal(Main.reader()));
+                final Pair<String, String> p = redirect.compare_double(file.dataout(), file.testout());
+                Assertions.assertEquals(p.getFirst().length(), p.getSecond().length());
+                Assertions.assertEquals(p.getFirst(), p.getSecond());
+            }
         }
     }
 
     @Test
     public void test_print() throws IOException {
-        try (Redirect redirect = Redirect.from(DATA_PATH, "02.data.in", "02.test.out")) {
-            Main.output(Main.print(Main.reader()));
-            final Pair<String, String> p = redirect.compare_double("02.data.out", "02.test.out");
-            Assertions.assertEquals(p.getFirst().length(), p.getSecond().length());
-            Assertions.assertEquals(p.getFirst(), p.getSecond());
-        }
-        try (Redirect redirect = Redirect.from(DATA_PATH, "01.data.in", "01.test.out")) {
-            Main.output(Main.print(Main.read()));
-            final Pair<String, String> p = redirect.compare_double("01.data.out", "01.test.out");
-            Assertions.assertEquals(p.getFirst().length(), p.getSecond().length());
-            Assertions.assertEquals(p.getFirst(), p.getSecond());
+        final List<Sequence.FileTriple> files = new Sequence(1, 9).getFiles(true);
+        for (Sequence.FileTriple file : files) {
+            try (Redirect redirect = Redirect.from(DATA_PATH, file.datain(), file.testout())) {
+                Main.output(Main.print(Main.reader()));
+                final Pair<String, String> p = redirect.compare_double(file.dataout(), file.testout());
+                Assertions.assertEquals(p.getFirst().length(), p.getSecond().length());
+                Assertions.assertEquals(p.getFirst(), p.getSecond());
+            }
         }
     }
 }

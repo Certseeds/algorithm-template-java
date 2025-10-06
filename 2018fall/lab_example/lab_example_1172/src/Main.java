@@ -20,25 +20,6 @@ public final class Main {
         }
     }
 
-    public static List<one> read() {
-        final var input = new Scanner(System.in);
-        final int testcases = input.nextInt();
-        assert ((1 <= testcases) && (testcases <= 100));
-        final List<one> cases = new ArrayList<>(testcases);
-        for (int i = 0; i < testcases; i++) {
-            final int a = input.nextInt(), b = input.nextInt(), c = input.nextInt();
-            final int n = input.nextInt(), m = input.nextInt();
-            assert ((1 <= a) && (a <= 100_000_000));
-            assert ((1 <= b) && (b <= 100_000_000));
-            assert ((1 <= c) && (c <= 100_000_000));
-            assert ((1 <= n) && (n <= 100_000_000));
-            assert ((1 <= m) && (m <= 100_000_000));
-            // java没有宏,不太方便在循环里assert
-            cases.add(new one(a, b, c, n, m));
-        }
-        return cases;
-    }
-
     public static List<one> reader() {
         final var input = new Reader();
         final int testcases = input.nextInt();

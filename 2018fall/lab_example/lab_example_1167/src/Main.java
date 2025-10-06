@@ -13,19 +13,6 @@ import java.util.stream.Collectors;
 public final class Main {
     private static final long mod = 1000000007L;
 
-    public static List<Integer> read() {
-        final var input = new Scanner(System.in);
-        final int testcases = input.nextInt();
-        assert ((1 <= testcases) && (testcases <= 100));
-        final var cases = new ArrayList<Integer>(testcases);
-        for (int i = 0; i < testcases; i++) {
-            final int n = input.nextInt();
-            assert ((1 <= n) && (n <= 1000));
-            cases.add(n);
-        }
-        return cases;
-    }
-
     public static List<Integer> reader() throws IOException {
         final var input = new Reader();
         final int testcases = input.nextInt();
@@ -67,7 +54,10 @@ public final class Main {
      * For each test case, print the minimum number of moves you need to do when there are n disks on the A rod initially.
      */
     public static void output(Iterable<Long> nums) {
-        nums.forEach(x -> System.out.print(x + "\n"));
+        for(final var num : nums) {
+            System.out.print(num);
+            System.out.print('\n');
+        }
     }
 
     // refactor from https://github.com/Kattis/kattio/blob/master/Kattio.java
@@ -93,20 +83,6 @@ public final class Main {
         }
 
         int nextInt() {return Integer.parseInt(next());}
-
-        long nextLong() {return Long.parseLong(next());}
-
-        double nextDouble() {return Double.parseDouble(next());}
-
-        String nextLine() {
-            String str = "";
-            try {
-                str = br.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return str;
-        }
     }
 
 }

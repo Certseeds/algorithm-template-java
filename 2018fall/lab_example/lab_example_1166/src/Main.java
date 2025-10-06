@@ -18,29 +18,6 @@ public final class Main {
         }
     }
 
-    public static List<single> read() {
-        final var input = new Scanner(System.in);
-        final int testcases = input.nextInt();
-        assert ((1 <= testcases) && (testcases <= 100));
-        final var cases = new ArrayList<single>();
-        for (int i = 0; i < testcases; i++) {
-            final int n = input.nextInt();
-            assert ((1 <= n) && (n <= 10));
-            final Set<String> algorithms = new HashSet<>(n);
-            for (int j = 0; j < n; j++) {
-                algorithms.add(input.next().toLowerCase());
-            }
-            final int m = input.nextInt();
-            assert ((1 <= m) && (m <= 1000));
-            final List<String> words = new ArrayList<>(m);
-            for (int j = 0; j < m; j++) {
-                words.add(input.next().toLowerCase());
-            }
-            cases.add(new single(algorithms, words));
-        }
-        return cases;
-    }
-
     public static List<single> reader() {
         final var input = new Reader();
         final int testcases = input.nextInt();
@@ -112,10 +89,6 @@ public final class Main {
         }
 
         int nextInt() {return Integer.parseInt(next());}
-
-        long nextLong() {return Long.parseLong(next());}
-
-        double nextDouble() {return Double.parseDouble(next());}
 
         String nextLine() {
             String str = "";

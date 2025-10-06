@@ -11,25 +11,6 @@ import java.util.StringTokenizer;
 
 public final class Main {
 
-    public static List<List<Integer>> read() {
-        final var input = new Scanner(System.in);
-        final int testcases = input.nextInt();
-        assert ((1 <= testcases) && (testcases <= 10));
-        final List<List<Integer>> cases = new ArrayList<>(testcases);
-        for (int i = 0; i < testcases; i++) {
-            final int n = input.nextInt();
-            assert ((2 <= n) && (n <= 20_0000));
-            final List<Integer> nes = new ArrayList<>(n);
-            for (int j = 0; j < n; j++) {
-                final int num = input.nextInt();
-                assert ((1 <= num) && (num <= 10_0000));
-                nes.add(num);
-            }
-            cases.add(nes);
-        }
-        return cases;
-    }
-
     public static List<List<Integer>> reader() {
         final var input = new Reader();
         final int testcases = input.nextInt();
@@ -69,7 +50,6 @@ public final class Main {
     public static void main(String[] args) throws IOException {
         final var datas = reader();
         final var result = cal(datas);
-        // final var result = cal(datas);
         output(result);
     }
 

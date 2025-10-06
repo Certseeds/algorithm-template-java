@@ -7,28 +7,8 @@ import java.io.InputStreamReader;
 import java.util.*;
 import java.util.stream.Collectors;
 
-// thanks <https://www.zhihu.com/column/p/30377770>
-// thanks <https://www.cnblogs.com/lfri/p/9899014.html>
-// this problem refactor from `Chomp Game`
-// this problem do not have a easy analytical-solution, but have a simple answer
-// PS: 取而不告, 是为?
-public final class Main {
-    // java不能有多返回值, 确实很烦
-    public static List<Map.Entry<Integer, Integer>> read() {
-        final var input = new Scanner(System.in);
-        final int testcases = input.nextInt();
-        assert ((1 <= testcases) && (testcases <= 100));
-        final var cases = new ArrayList<Map.Entry<Integer, Integer>>(testcases);
-        for (int i = 0; i < testcases; i++) {
-            final int n = input.nextInt();
-            final int m = input.nextInt();
-            assert ((1 <= n) && (n <= 1000));
-            assert ((1 <= m) && (m <= 1000));
-            cases.add(new AbstractMap.SimpleImmutableEntry<>(n, m));
-        }
-        return cases;
-    }
 
+public final class Main {
     public static List<Map.Entry<Integer, Integer>> reader() {
         final var input = new Reader();
         final int testcases = input.nextInt();
@@ -89,20 +69,6 @@ public final class Main {
         }
 
         int nextInt() {return Integer.parseInt(next());}
-
-        long nextLong() {return Long.parseLong(next());}
-
-        double nextDouble() {return Double.parseDouble(next());}
-
-        String nextLine() {
-            String str = "";
-            try {
-                str = br.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return str;
-        }
     }
 
 }

@@ -4,9 +4,58 @@ SPDX-License-Identifier: CC-BY-NC-SA-4.0
 
 # lab_example_1169
 
-## 分析输出
+> problem_id: 1169
 
-### examples
+## Description
+
+Please write a program to print a 3D cuboid with length $a$, width $b$ and height $c$.
+
+You can see the details in the sample input and output.
+
+### Input
+
+The first line of input is the number of test cases $T$ $(1 \leq T \leq 100)$.
+
+For each test case, the first line will be three integers $a$, $b$ and $c$ $(1 \leq a, b, c \leq 30)$.
+
+### Output
+
+For each test case, print the cuboid as the sample output.
+
+### Sample Input
+
+``` log
+2
+1 1 1
+6 2 4
+```
+
+### Sample Output
+
+``` log
+..+-+
+././|
++-+.+
+|.|/.
++-+..
+....+-+-+-+-+-+-+
+.../././././././|
+..+-+-+-+-+-+-+.+
+./././././././|/|
++-+-+-+-+-+-+.+.+
+|.|.|.|.|.|.|/|/|
++-+-+-+-+-+-+.+.+
+|.|.|.|.|.|.|/|/|
++-+-+-+-+-+-+.+.+
+|.|.|.|.|.|.|/|/.
++-+-+-+-+-+-+.+..
+|.|.|.|.|.|.|/...
++-+-+-+-+-+-+....
+```
+
+### 分析输出
+
+#### examples
 
 1 1 1
 
@@ -52,33 +101,35 @@ SPDX-License-Identifier: CC-BY-NC-SA-4.0
 +-+..
 ```
 
-### 合理推理
+#### 合理推理
 
-the input integer is a,b and c
+the input integer is $a$, $b$ and $c$
 
-let's find something from the input and output, fst we name the matrix's width and height as w and h
+let's find something from the input and output, fst we name the matrix's width and height as $w$ and $h$
 
-when a = 1, b = 1, c = 1, output matrix is 5*5
-when a = 1, b = 1, c = 2, output matrix is 5*7
-when a = 1, b = 1, c = 3, output matrix is 5*9
++ when $a = 1$, $b = 1$, $c = 1$, output matrix is $5 \times 5$
++ when $a = 1$, $b = 1$, $c = 2$, output matrix is $5 \times 7$
++ when $a = 1$, $b = 1$, $c = 3$, output matrix is $5 \times 9$
 
-so delta(c)/delta(h)=2
+so $\Delta c / \Delta h = 2$
 
-when a = 1, b = 1, c = 1, output matrix is 5*5
-when a = 1, b = 2, c = 1, output matrix is 7*7
-when a = 1, b = 3, c = 1, output matrix is 9*9
++ when $a = 1$, $b = 1$, $c = 1$, output matrix is $5 \times 5$
++ when $a = 1$, $b = 2$, $c = 1$, output matrix is $7 \times 7$
++ when $a = 1$, $b = 3$, $c = 1$, output matrix is $9 \times 9$
 
-so delta(b)/delta(h)=2 && so delta(b)/delta(w)=2
+so $\Delta b / \Delta h = 2$ and $\Delta b / \Delta w = 2$
 
-when a = 1, b = 1, c = 1, output matrix is 5*5
-when a = 2, b = 1, c = 1, output matrix is 7*5
-when a = 3, b = 1, c = 1, output matrix is 9*5
++ when $a = 1$, $b = 1$, $c = 1$, output matrix is $5 \times 5$
++ when $a = 2$, $b = 1$, $c = 1$, output matrix is $7 \times 5$
++ when $a = 3$, $b = 1$, $c = 1$, output matrix is $9 \times 5$
 
-so delta(a)/delta(w) = 2
+so $\Delta a / \Delta w = 2$
 
-in conclusion , `w = 2a+2b+1, h = 2b+2c+1`
-let's find a target to ensure that, when input is `3,5,8`
-the width should be 17 and the height should be 27, matches the log below
+in conclusion, $w = 2a + 2b + 1$, $h = 2b + 2c + 1$
+
+let's find a target to ensure that, when input is $3, 5, 8$
+
+the width should be $17$ and the height should be $27$, matches the log below
 
 ``` log
 ..........+-+-+-+
@@ -153,14 +204,14 @@ a对应y轴, b对应x轴, c对应z轴
 + 1,2,1是第五行第三个
 + 1,1,2是第七行第一个
 
-规律应该是第一个不影响, 第二个系数是2,影响从左到右, 第三个影响系数也是二, 影响列数.
+规律应该是第一个不影响, 第二个系数是2, 影响从左到右, 第三个影响系数也是二, 影响列数.
 `beginx = 2 + 2 * c, beginy = -2 + 2 * b`
 
 接下来不要把左上角和右下角的.看成是形状 ,他们是background,不需要画出来.
 
 之后算法很好写, 记得用一个stringbuilder来防止多次print带来的超时
 
-## thanks
+### thanks
 
 + thanks <https://blog.csdn.net/qq_39304630/article/details/104290566>
 + thanks <https://blog.csdn.net/IMDASHUAI/article/details/109730755>
