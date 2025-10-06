@@ -31,7 +31,7 @@ public final class MainTest {
     @Test
     public void test_01() throws IOException {
         try (Redirect redirect = Redirect.from(DATA_PATH, "01.data.in", "")) {
-            Main.cal(Main.read());
+            Main.cal(Main.reader());
         }
     }
 

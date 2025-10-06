@@ -55,10 +55,10 @@ public final class MainTest {
     @Test
     public void test_3() throws IOException {
         try (Redirect redirect = Redirect.from(DATA_PATH, "01.data.in", "")) {
-            Assertions.assertEquals(628, Main.cal(Main.read()));
+            Assertions.assertEquals(628, Main.cal(Main.reader()));
         }
         try (Redirect redirect = Redirect.from(DATA_PATH, "01.data.in", "")) {
-            Assertions.assertEquals(628, Main.cal(Main.read()));
+            Assertions.assertEquals(628, Main.cal(Main.reader()));
         }
     }
 

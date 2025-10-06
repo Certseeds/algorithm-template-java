@@ -7,19 +7,6 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public final class Main {
-    public static List<String> read() {
-        final var input = new Scanner(System.in);
-        final int testcases = input.nextInt();
-        assert ((1 <= testcases) && (testcases <= 10));
-        final List<String> cases = new ArrayList<>(testcases);
-        for (int i = 0; i < testcases; i++) {
-            final String str = input.next();
-            assert (str.length() <= 10_000);
-            // java没有宏,不太方便在循环里assert
-            cases.add(str);
-        }
-        return cases;
-    }
 
     public static List<String> reader() {
         final var input = new Reader();

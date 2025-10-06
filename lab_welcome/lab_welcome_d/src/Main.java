@@ -6,28 +6,16 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public final class Main {
-    private static final List<Map.Entry<Integer, String>> spis =
-        List.of(new AbstractMap.SimpleImmutableEntry<>(2, "+---+")
-            , new AbstractMap.SimpleImmutableEntry<>(1, "/   /|")
-            , new AbstractMap.SimpleImmutableEntry<>(0, "+---+ |")
-            , new AbstractMap.SimpleImmutableEntry<>(0, "|   | +")
-            , new AbstractMap.SimpleImmutableEntry<>(0, "|   |/")
-            , new AbstractMap.SimpleImmutableEntry<>(0, "+---+"));
+    private static final List<Map.Entry<Integer, String>> spis = List.of(
+        new AbstractMap.SimpleImmutableEntry<>(2, "+---+")
+        , new AbstractMap.SimpleImmutableEntry<>(1, "/   /|")
+        , new AbstractMap.SimpleImmutableEntry<>(0, "+---+ |")
+        , new AbstractMap.SimpleImmutableEntry<>(0, "|   | +")
+        , new AbstractMap.SimpleImmutableEntry<>(0, "|   |/")
+        , new AbstractMap.SimpleImmutableEntry<>(0, "+---+")
+    );
 
-    public static int[][] read() {
-        Scanner input = new Scanner(System.in);
-        final int m = input.nextInt();
-        final int n = input.nextInt();
-        final int[][] will_return = new int[m + 1][n + 1];
-        for (int i = 1; i <= m; i++) {
-            for (int j = 1; j <= n; j++) {
-                will_return[i][j] = input.nextInt();
-            }
-        }
-        return will_return;
-    }
-
-    public static int[][] reader() throws IOException {
+    public static int[][] reader() {
         final var input = new Reader();
         final int m = input.nextInt();
         final int n = input.nextInt();
@@ -42,8 +30,7 @@ public final class Main {
 
     public static void print(char[][] map, int a, int b) {
         for (int i = 0; i < spis.size(); i++) {
-            for (int j = 0; j < spis.get(i).getValue().length();
-                 j++) {
+            for (int j = 0; j < spis.get(i).getValue().length(); j++) {
                 map[a - 1 + i][b + j + spis.get(i).getKey()] = spis.get(i).getValue().charAt(j);
             }
         }
@@ -51,8 +38,7 @@ public final class Main {
 
     public static void cal(int[][] hi) {
         final char[][] out = new char[302][301];
-        Arrays.stream(out)
-            .forEach(a -> Arrays.fill(a, '.'));
+        Arrays.stream(out).forEach(a -> Arrays.fill(a, '.'));
         final int m = hi.length - 1;
         final int n = hi[0].length - 1;
         final int wide = 4 * n + 2 * m + 1;
@@ -75,7 +61,7 @@ public final class Main {
     }
 
     public static void main(String[] args) {
-        final var input = read();
+        final var input = reader();
         cal(input);
     }
 
@@ -110,11 +96,17 @@ public final class Main {
             return st.nextToken();
         }
 
-        int nextInt() {return Integer.parseInt(next());}
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
 
-        long nextLong() {return Long.parseLong(next());}
+        long nextLong() {
+            return Long.parseLong(next());
+        }
 
-        double nextDouble() {return Double.parseDouble(next());}
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
 
         String nextLine() {
             String str = "";

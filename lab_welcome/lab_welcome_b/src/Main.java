@@ -7,17 +7,8 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public final class Main {
-    public static long[] read() {
-        final var input = new Scanner(System.in);
-        final int test_number = input.nextInt();
-        final long[] will_return = new long[test_number];
-        for (int i = 0; i < test_number; i++) {
-            will_return[i] = input.nextInt();
-        }
-        return will_return;
-    }
 
-    public static long[] reader() throws IOException {
+    public static long[] reader() {
         final var Reader = new Reader();
         final int test_number = Reader.nextInt();
         final long[] will_return = new long[test_number];
@@ -55,7 +46,7 @@ public final class Main {
     }
 
     public static void main(String[] args) {
-        final var input = read();
+        final var input = reader();
         final var output = cal_warpper(input);
         output(output);
     }

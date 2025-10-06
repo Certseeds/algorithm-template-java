@@ -7,14 +7,6 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public final class Main {
-    public static int[] read() {
-        final int[] will_return = new int[2];
-        final var input = new Scanner(System.in);
-        will_return[0] = input.nextInt();
-        will_return[1] = input.nextInt();
-        return will_return;
-
-    }
 
     public static int[] reader() throws IOException {
         final int[] will_return = new int[2];

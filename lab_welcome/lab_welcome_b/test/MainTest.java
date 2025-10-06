@@ -52,14 +52,6 @@ public final class MainTest {
     public void test_3() throws IOException {
         for (int i = 1; i <= 3; i++) {
             try (Redirect redirect = Redirect.from(DATA_PATH, String.format("0%d.data.in", i), String.format("0%d.test.out", i))) {
-                Main.output(Main.cal_warpper(Main.read()));
-                final Pair<String, String> p = redirect.compare_double(String.format("0%d.data.out", i), String.format("0%d.test.out", i));
-                Assertions.assertEquals(p.getFirst().length(), p.getSecond().length());
-                Assertions.assertEquals(p.getFirst(), p.getSecond());
-            }
-        }
-        for (int i = 1; i <= 3; i++) {
-            try (Redirect redirect = Redirect.from(DATA_PATH, String.format("0%d.data.in", i), String.format("0%d.test.out", i))) {
                 Main.output(Main.cal_warpper(Main.reader()));
                 final Pair<String, String> p = redirect.compare_double(String.format("0%d.data.out", i), String.format("0%d.test.out", i));
                 Assertions.assertEquals(p.getFirst().length(), p.getSecond().length());

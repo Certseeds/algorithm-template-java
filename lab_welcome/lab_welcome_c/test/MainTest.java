@@ -18,7 +18,7 @@ public final class MainTest {
     private static final long begin_time = System.currentTimeMillis();
 
     @AfterAll
-    public static void last_one() throws IOException {
+    public static void last_one() {
         log.info("cost {} ms\n", System.currentTimeMillis() - begin_time);
     }
 
@@ -35,19 +35,19 @@ public final class MainTest {
     @Test
     public void test_01() throws IOException {
         try (Redirect redirect = Redirect.from(DATA_PATH, "01.data.in", "")) {
-            Assertions.assertFalse(Main.cal(Main.read()));
+            Assertions.assertFalse(Main.cal(Main.reader()));
         }
         try (Redirect redirect = Redirect.from(DATA_PATH, "02.data.in", "")) {
-            Assertions.assertTrue(Main.cal(Main.read()));
+            Assertions.assertTrue(Main.cal(Main.reader()));
         }
         try (Redirect redirect = Redirect.from(DATA_PATH, "03.data.in", "")) {
-            Assertions.assertTrue(Main.cal(Main.read()));
+            Assertions.assertTrue(Main.cal(Main.reader()));
         }
         try (Redirect redirect = Redirect.from(DATA_PATH, "04.data.in", "")) {
-            Assertions.assertFalse(Main.cal(Main.read()));
+            Assertions.assertFalse(Main.cal(Main.reader()));
         }
         try (Redirect redirect = Redirect.from(DATA_PATH, "05.data.in", "")) {
-            Assertions.assertFalse(Main.cal(Main.read()));
+            Assertions.assertFalse(Main.cal(Main.reader()));
         }
     }
 
@@ -57,7 +57,7 @@ public final class MainTest {
         final List<Boolean> result = List.of(false, true, true, false, false);
         for (int i = 0; i < 5; i++) {
             try (Redirect redirect = Redirect.from(DATA_PATH, strs[i], "")) {
-                Assertions.assertEquals(Main.cal(Main.read()), result.get(i));
+                Assertions.assertEquals(Main.cal(Main.reader()), result.get(i));
             }
         }
     }
@@ -65,12 +65,16 @@ public final class MainTest {
     @Test
     public void test_03() throws FileNotFoundException {
         // java内部没pair,凑合拿这个当pair吧.
-        final List<Pair<String, Boolean>> results =
-            List.of(new Pair<>("01.data.in", false), new Pair<>("02.data.in", true), new Pair<>("03.data.in", true),
-                new Pair<>("04.data.in", false), new Pair<>("05.data.in", false));
+        final List<Pair<String, Boolean>> results = List.of(
+            new Pair<>("01.data.in", false),
+            new Pair<>("02.data.in", true),
+            new Pair<>("03.data.in", true),
+            new Pair<>("04.data.in", false),
+            new Pair<>("05.data.in", false)
+        );
         for (var me : results) {
             try (Redirect redirect = Redirect.from(DATA_PATH, me.getFirst(), "")) {
-                Assertions.assertEquals(Main.cal(Main.read()), me.getSecond());
+                Assertions.assertEquals(Main.cal(Main.reader()), me.getSecond());
             }
         }
     }

@@ -6,27 +6,11 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public final class Main {
-
-
     private static final String SUCCESS = "\"PoSSiBLE\"\n";
     // uncolor is the first so it's default when init array.
     private static final String FAIL = "\"lMP0SSlBLE\"\n";
 
-    public static int[][] read() {
-        final var input = new Scanner(System.in);
-        final int node_number = input.nextInt();
-        final int[][] will_return = new int[node_number][];
-        for (int i = 0; i < node_number; i++) {
-            int connects = input.nextInt();
-            will_return[i] = new int[connects];
-            for (int j = 0; j < connects; j++) {
-                will_return[i][j] = input.nextInt();
-            }
-        }
-        return will_return;
-    }
-
-    public static int[][] reader() throws IOException {
+    public static int[][] reader(){
         final var input = new Reader();
         final int node_number = input.nextInt();
         final int[][] will_return = new int[node_number][];
@@ -41,7 +25,7 @@ public final class Main {
     }
 
     public static void main(String[] args) {
-        final int[][] graph = read();
+        final int[][] graph = reader();
         final boolean result = cal(graph);
         output(result);
     }
