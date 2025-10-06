@@ -14,7 +14,7 @@ For each test cases, print the number of tuples satisfying requirements in one l
 
 ### Sample Input
 
-``` log 
+``` log
 2
 4 3
 1 2 3 4

@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
@@ -19,23 +18,6 @@ public final class Main {
             this.m = m;
             this.e = e;
         }
-    }
-
-    public static List<one> read() {
-        final var input = new Scanner(System.in);
-        final int testcases = input.nextInt();
-        assert ((1 <= testcases) && (testcases <= 100));
-        final List<one> cases = new ArrayList<>(testcases);
-        for (int i = 0; i < testcases; i++) {
-            final int n = input.nextInt();
-            final int m = input.nextInt();
-            final int e = input.nextInt();
-            assert ((1 <= n) && (n <= 100));
-            assert ((1 <= m) && (m <= 100));
-            assert ((0 <= e) && (e <= n));
-            cases.add(new one(n, m, e));
-        }
-        return cases;
     }
 
     public static List<one> reader() {
@@ -141,19 +123,5 @@ public final class Main {
         }
 
         int nextInt() {return Integer.parseInt(next());}
-
-        long nextLong() {return Long.parseLong(next());}
-
-        double nextDouble() {return Double.parseDouble(next());}
-
-        String nextLine() {
-            String str = "";
-            try {
-                str = br.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return str;
-        }
     }
 }

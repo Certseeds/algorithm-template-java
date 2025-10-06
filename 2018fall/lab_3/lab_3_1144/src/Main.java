@@ -16,27 +16,6 @@ public final class Main {
         }
     }
 
-    public static List<one> read() {
-        final var input = new Scanner(System.in);
-        final int testcases = input.nextInt();
-        assert ((1 <= testcases) && (testcases <= 100));
-        final List<one> cases = new ArrayList<>(testcases);
-        for (int i = 0; i < testcases; i++) {
-            final int n = input.nextInt();
-            assert ((0 <= n) && (n <= 1_000));
-            final List<Map.Entry<Integer, Integer>> fst = new ArrayList<>(n);
-            for (int j = 0; j < n; j++) {
-                final int coefficient = input.nextInt();
-                final int exponent = input.nextInt();
-                assert ((-1000 <= coefficient) && (coefficient <= 1000));
-                assert ((-1000 <= exponent) && (exponent <= 1000));
-                fst.add(new AbstractMap.SimpleImmutableEntry<>(coefficient, exponent));
-            }
-            cases.add(new one(fst));
-        }
-        return cases;
-    }
-
     public static List<one> reader() {
         final var input = new Reader();
         final int testcases = input.nextInt();
@@ -159,19 +138,5 @@ public final class Main {
         }
 
         int nextInt() {return Integer.parseInt(next());}
-
-        long nextLong() {return Long.parseLong(next());}
-
-        double nextDouble() {return Double.parseDouble(next());}
-
-        String nextLine() {
-            String str = "";
-            try {
-                str = br.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return str;
-        }
     }
 }

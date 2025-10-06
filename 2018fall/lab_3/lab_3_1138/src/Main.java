@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
@@ -19,33 +18,6 @@ public final class Main {
             this.fst = fst;
             this.snd = snd;
         }
-    }
-
-    public static List<one> read() {
-        final var input = new Scanner(System.in);
-        final int testcases = input.nextInt();
-        assert ((1 <= testcases) && (testcases <= 15));
-        final List<one> cases = new ArrayList<>(testcases);
-        for (int i = 0; i < testcases; i++) {
-            final int n = input.nextInt();
-            final int m = input.nextInt();
-            assert ((1 <= n) && (n <= 100_000));
-            assert ((1 <= m) && (m <= 100_000));
-            final List<Integer> fst = new ArrayList<>(n); // 还想优化这里可以用裸数组
-            final List<Integer> snd = new ArrayList<>(m);
-            for (int j = 0; j < n; j++) {
-                final int number = input.nextInt();
-                assert ((1 <= number) && (number <= 1_000_000_000));
-                fst.add(number);
-            }
-            for (int j = 0; j < m; j++) {
-                final int number = input.nextInt();
-                assert ((1 <= number) && (number <= 1_000_000_000));
-                snd.add(number);
-            }
-            cases.add(new one(fst, snd));
-        }
-        return cases;
     }
 
     public static List<one> reader() {
@@ -145,19 +117,5 @@ public final class Main {
         }
 
         int nextInt() {return Integer.parseInt(next());}
-
-        long nextLong() {return Long.parseLong(next());}
-
-        double nextDouble() {return Double.parseDouble(next());}
-
-        String nextLine() {
-            String str = "";
-            try {
-                str = br.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return str;
-        }
     }
 }

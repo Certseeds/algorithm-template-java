@@ -16,25 +16,6 @@ public final class Main {
         }
     }
 
-    public static List<one> read() {
-        final var input = new Scanner(System.in);
-        final int testcases = input.nextInt();
-        assert ((1 <= testcases) && (testcases <= 10));
-        final List<one> cases = new ArrayList<>(testcases);
-        for (int i = 0; i < testcases; i++) {
-            final int n = input.nextInt();
-            assert ((1 <= n) && (n <= 300_000));
-            final List<Integer> moneys = new ArrayList<>(n);
-            for (int j = 0; j < n; j++) {
-                final int money = input.nextInt();
-                assert ((0 <= money) & (money <= 300_000));
-                moneys.add(money);
-            }
-            cases.add(new one(moneys));
-        }
-        return cases;
-    }
-
     public static List<one> reader() {
         final var input = new Reader();
         final int testcases = input.nextInt();
@@ -132,19 +113,5 @@ public final class Main {
         }
 
         int nextInt() {return Integer.parseInt(next());}
-
-        long nextLong() {return Long.parseLong(next());}
-
-        double nextDouble() {return Double.parseDouble(next());}
-
-        String nextLine() {
-            String str = "";
-            try {
-                str = br.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return str;
-        }
     }
 }

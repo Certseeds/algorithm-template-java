@@ -4,6 +4,51 @@ SPDX-License-Identifier: CC-BY-NC-SA-4.0
 
 # lab_3_1142
 
+## Description
+
+Macau casino has a popular game: horse racing.
+
+However, the rule is different from the normal ones.
+
+It is about guessing the $k$th fastest horse.
+
+Joy wants to apply a job in the casino, but his boss give him a test.
+
+He can get the job only if he passes the test.
+
+The rules are as followed:
+
+Given the strength of $n$ horses, (to simplify, the strength of the $n$ horses is a permutation of $1$ to $n$, and horse with larger strength run faster), the boss wants to know the sum of all the $k$th fastest horse in every consecutive interval of the $n$ horses, and remember only the intervals equal or longer than $k$ should be considered.
+
+Joy is not good at math, so he turns to you for help.
+
+### Input
+
+There is only one integer $T$ $(1 \leq T \leq 10)$ in the first line, denoting the number of test cases.
+
+For each test case, the first line includes two integers $n$ and $k$.
+$k \leq \min(n, 80)$, the sum of $n$ in all test cases does not exceed $5 \times 10^5$.
+
+The second line is the strength of the $n$ horses.
+
+### Output
+
+For each test case, output a line containing the answer.
+
+### Sample Input
+
+``` log
+1
+5 2
+1 2 3 4 5
+```
+
+### Sample Output
+
+``` log
+30
+```
+
 ## 解析输入
 
 ### part1
@@ -107,3 +152,13 @@ $∑(i from 1 to n+1-k) (klogk + (n-k-i)*2logk)$, 基本上也是O(n^2)级别, �
 这时就要引入链表了, 如果我们把数组存在链表内, 每次扫描的时候, 把上一轮的值从链表中删除, 这样就可以保证每次扫描的时候, 都是k个值, 也能保证不复制数组, 使用一个O(1)时间.
 
 因此, 每次扫描, 都是扫描当前的最小值, 链表里面的值都是比当前值大的, 比当前值小的都体现了position里面了.
+
+### 算法分析
+
+本题要求所有长度 $\geq k$ 的区间第 $k$ 大值之和
+
+采用滑动窗口和链表结构, 动态维护区间内元素, 快速查找第 $k$ 大
+
+时间复杂度 $O(nk)$, 空间复杂度 $O(n)$, 适合 $k$ 较小场景
+
+若需更高效可用平衡树优化

@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public final class Main {
     private static final class one {
@@ -17,27 +16,6 @@ public final class Main {
             this.powers = powers;
             this.k = k;
         }
-    }
-
-    public static List<one> read() {
-        final var input = new Scanner(System.in);
-        final int testcases = input.nextInt();
-        assert ((1 <= testcases) && (testcases <= 10));
-        final List<one> cases = new ArrayList<>(testcases);
-        for (int i = 0; i < testcases; i++) {
-            final int n = input.nextInt();
-            final int k = input.nextInt();
-            assert ((1 <= n) && (n <= 500_000));
-            assert ((0 <= k) & (k <= Math.min(n, 80)));
-            final List<Integer> powers = new ArrayList<>(n);
-            for (int j = 0; j < n; j++) {
-                final int power = input.nextInt();
-                assert ((0 <= power) & (power <= 500_000));
-                powers.add(power);
-            }
-            cases.add(new one(powers, k));
-        }
-        return cases;
     }
 
     public static List<one> reader() {
@@ -125,36 +103,6 @@ public final class Main {
         return results;
     }
 
-    public static List<Long> cal_slow(List<one> nums) {
-        final List<Long> results = nums.stream()
-            .map(one -> {
-                final int n = one.powers.size();
-                final int k = one.k;
-                if (n == k) {
-                    return (long) one.powers.get(0);
-                }
-                long sum = 0;
-                final int internels = n + 1 - k;
-                for (int i = 0; i < internels; i++) {
-                    final PriorityQueue<Integer> queue = new PriorityQueue<>(k + 2);
-                    //final PriorityQueue<Integer> maxQueue = new PriorityQueue<>(Comparator.reverseOrder());
-                    for (int j = i; j < k + i; j++) {
-                        queue.add(one.powers.get(j));
-                    }
-                    sum += queue.peek();
-                    for (int j = k + i; j < n; j++) {
-                        queue.add(one.powers.get(j));
-                        queue.poll();
-                        //maxQueue.add(minumum);
-                        sum += queue.peek();
-                    }
-                }
-                return sum;
-            })
-            .collect(Collectors.toUnmodifiableList());
-        return results;
-    }
-
     public static void main(String[] args) throws IOException {
         final var datas = reader();
         final var result = cal(datas);
@@ -190,19 +138,5 @@ public final class Main {
         }
 
         int nextInt() {return Integer.parseInt(next());}
-
-        long nextLong() {return Long.parseLong(next());}
-
-        double nextDouble() {return Double.parseDouble(next());}
-
-        String nextLine() {
-            String str = "";
-            try {
-                str = br.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return str;
-        }
     }
 }

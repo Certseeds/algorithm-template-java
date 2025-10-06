@@ -4,8 +4,10 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
 public final class Main {
@@ -17,20 +19,6 @@ public final class Main {
             this.booksNum = booksNum;
             this.customes = customes;
         }
-    }
-
-    public static List<one> read() {
-        final var input = new Scanner(System.in);
-        final List<one> cases = new ArrayList<>();
-        while (input.hasNext()) {
-            final int number = input.nextInt();
-            assert ((0 <= number) && (number <= 20));
-            if (number != 0) {
-                final String custom = input.next();
-                cases.add(new one(number, custom));
-            }
-        }
-        return cases;
     }
 
     public static List<one> reader() {
@@ -132,10 +120,6 @@ public final class Main {
         }
 
         int nextInt() {return Integer.parseInt(next());}
-
-        long nextLong() {return Long.parseLong(next());}
-
-        double nextDouble() {return Double.parseDouble(next());}
 
         String nextLine() {
             String str = "";

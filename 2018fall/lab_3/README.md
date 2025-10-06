@@ -2,7 +2,32 @@
 SPDX-License-Identifier: CC-BY-NC-SA-4.0
 ---
 
-# lab_3: sort
+# Welcome to (autumn) DSAA lab 3! Enjoy this Lab!
+
+> cid: 1032
+
+There are seven problems for you to solve.
+
+Two of them are bonus.
+
+Read the problem description carefully.
+
+Compulsory problems:
+
++ A(easy): 15
++ B(easy): 15
++ C(easy): 15
++ D(median): 20
++ E(median): 25
+
+> 细节 $ 15 \times 3 + 20 + 25 = 90 \neq 100$
+
+Bonus problem:
+
++ F(hard): 35
++ G(hard): 35
+
+Read the samples carefully can help you understand the problem.
 
 要说本章是sort也很难讲, 只能说本章体现了sort的思路.
 
@@ -22,8 +47,9 @@ SPDX-License-Identifier: CC-BY-NC-SA-4.0
 
 1142这道题明显是难度没把控好, 不然数据也不会是这个鬼样子,1142一下变成只有15%的ac比率, 和1143直接对比成2:5.
 
-前面几道题也是, 没什么区分, 即起不到训练作用, 也没有筛选作用, 出题的可以说是什么好目标也没有达到, 失败至极; 当然,
-成功达成了折磨人的目标.
+前面几道题也是, 没什么区分, 即起不到训练作用, 也没有筛选作用, 出题的可以说是什么好目标也没有达到, 失败至极
+
+当然, 成功达成了折磨人的目标.
 
 ## 1140-1144
 
