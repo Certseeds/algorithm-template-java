@@ -35,13 +35,6 @@ public final class MainTest {
 
     @Test
     public void test_2() throws IOException {
-        try (Redirect redirect = Redirect.from(DATA_PATH,"01.data.in", "01.test.out")) {
-            Main.output(Main.cal(Main.read()));
-            final Pair<String, String> p = redirect.compare_double("01.data.out", "01.test.out");
-            Assertions.assertEquals(p.getFirst().length(), p.getSecond().length());
-            Assertions.assertEquals(p.getFirst(), p.getSecond());
-        }
-
         try (Redirect redirect = Redirect.from(DATA_PATH,"01.data.in", "01.test.out")){
             Main.output(Main.cal(Main.reader()));
             final Pair<String, String> p = redirect.compare_double("01.data.out", "01.test.out");

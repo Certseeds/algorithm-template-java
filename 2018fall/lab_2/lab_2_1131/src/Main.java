@@ -21,24 +21,6 @@ public final class Main {
         }
     }
 
-    public static List<single> read() {
-        final var input = new Scanner(System.in);
-        final int testcases = input.nextInt();
-        assert ((2 <= testcases) && (testcases <= 1000));
-        final var cases = new ArrayList<single>();
-        for (int i = 0; i < testcases; i++) {
-            final int n = input.nextInt();
-            assert ((1 <= n) && (n <= 1000_000));
-            final long m = input.nextInt();// know nothing about the range
-            final List<Integer> algorithms = new ArrayList<>(n);
-            for (int j = 0; j < n; j++) {
-                algorithms.add(input.nextInt());
-            }
-            cases.add(new single((int) m, algorithms));
-        }
-        return cases;
-    }
-
     public static List<single> reader() {
         final var input = new Reader();
         final int testcases = input.nextInt();
@@ -115,19 +97,5 @@ public final class Main {
         }
 
         int nextInt() {return Integer.parseInt(next());}
-
-        long nextLong() {return Long.parseLong(next());}
-
-        double nextDouble() {return Double.parseDouble(next());}
-
-        String nextLine() {
-            String str = "";
-            try {
-                str = br.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return str;
-        }
     }
 }

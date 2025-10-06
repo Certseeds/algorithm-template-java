@@ -31,53 +31,49 @@ public final class Main {
         private final long[] lazy;
         // private final long[]  tree;
         private final long[] minn;
-        private Integer[] arr;
+        private final List<Integer> arr;
 
         private void maintain(int cl, int cr, int p) {
-            final int cm = cl + (cr - cl) / 2;
             if (cl != cr && lazy[p] != 0) {
                 lazy[p * 2] += lazy[p];
                 lazy[p * 2 + 1] += lazy[p];
-                // tree[p * 2] += lazy[p] * (cm - cl + 1);
-                // tree[p * 2 + 1] += lazy[p] * (cr - cm);
                 minn[p * 2] += lazy[p];
                 minn[p * 2 + 1] += lazy[p];
                 lazy[p] = 0;
             }
         }
 
-//        private int range_sum(int l, int r, int cl, int cr, int p) {
-//            if (l <= cl && cr <= r) {return tree[p];}
-//            final int m = cl + (cr - cl) / 2;
-//            int sum = 0;
-//            maintain(cl, cr, p);
-//            if (l <= m) {sum += range_sum(l, r, cl, m, p * 2);}
-//            if (r > m) {sum += range_sum(l, r, m + 1, cr, p * 2 + 1);}
-//            return sum;
-//        }
 
         private long queryMin(int l, int r, int cl, int cr, int p) {
-            if (l <= cl && cr <= r) {return minn[p];}
+            if (l <= cl && cr <= r) {
+                return minn[p];
+            }
             final int m = cl + (cr - cl) / 2;
             long minn = Integer.MAX_VALUE;
             maintain(cl, cr, p);
-            if (l <= m) {minn = Math.min(minn, queryMin(l, r, cl, m, p * 2));}
-            if (r > m) {minn = Math.min(minn, queryMin(l, r, m + 1, cr, p * 2 + 1));}
+            if (l <= m) {
+                minn = Math.min(minn, queryMin(l, r, cl, m, p * 2));
+            }
+            if (r > m) {
+                minn = Math.min(minn, queryMin(l, r, m + 1, cr, p * 2 + 1));
+            }
             return minn;
         }
 
         private void range_add(int l, int r, int val, int cl, int cr, int p) {
             if (l <= cl && cr <= r) {
                 lazy[p] += val;
-                //  tree[p] += (cr - cl + 1) * val;
                 minn[p] += val;
-                // minn[p] +=  val;
                 return;
             }
             final int m = cl + (cr - cl) / 2;
             maintain(cl, cr, p);
-            if (l <= m) {range_add(l, r, val, cl, m, p * 2);}
-            if (r > m) {range_add(l, r, val, m + 1, cr, p * 2 + 1);}
+            if (l <= m) {
+                range_add(l, r, val, cl, m, p * 2);
+            }
+            if (r > m) {
+                range_add(l, r, val, m + 1, cr, p * 2 + 1);
+            }
             // tree[p] = tree[p * 2] + tree[p * 2 + 1];
             minn[p] = Math.min(minn[p * 2], minn[p * 2 + 1]);
         }
@@ -85,7 +81,7 @@ public final class Main {
         private void build(int s, int t, int p) {
             if (s == t) {
                 // tree[p] = arr[s];
-                minn[p] = arr[s];
+                minn[p] = arr.get(s);
                 return;
             }
             final int m = s + (t - s) / 2;
@@ -95,59 +91,29 @@ public final class Main {
             minn[p] = Math.min(minn[p * 2], minn[p * 2 + 1]);
         }
 
-        private final int n, root, n4, end;
+        private final int root, end;
 
         SegTreeLazyRangeSet(List<Integer> v) {
-            n = v.size();
-            n4 = n * 4;
+            final int n = v.size();
+            final int n4 = n * 4;
             // tree = new long[n4];
             lazy = new long[n4];
             minn = new long[n4];
-            arr = v.toArray(new Integer[0]);
+            arr = v;
             end = n - 1;
             root = 1;
             build(0, end, 1);
-            arr = new Integer[0];
         }
 
         // public int range_sum(int l, int r) {return range_sum(l, r, 0, end, root);}
 
-        public long queryMin(int l, int r) {return queryMin(l, r, 0, end, root);}
-
-        public void range_add(int l, int r, int val) {range_add(l, r, val, 0, end, root);}
-
-    }
-
-    public static List<one> read() {
-        final var input = new Scanner(System.in);
-        final List<one> cases = new ArrayList<>();
-        while (input.hasNext()) {
-            final int n = input.nextInt();
-            final int m = input.nextInt();
-            assert ((1 <= n) && (n <= 1000_000));
-            assert ((1 <= m) && (m <= 1000_000));
-            final var rooms = new ArrayList<Integer>(n);
-            final var dList = new ArrayList<Integer>(m);
-            final var sList = new ArrayList<Integer>(m);
-            final var tList = new ArrayList<Integer>(m);
-            for (int i = 0; i < n; i++) {
-                final int r = input.nextInt();
-                assert ((0 <= r) && (r <= 1000_000_000));
-                rooms.add(r);
-            }
-            for (int i = 0; i < m; i++) {
-                final int dj = input.nextInt();
-                final int sj = input.nextInt();
-                final int tj = input.nextInt();
-                assert ((0 <= dj) && (dj <= 1000_000_000));
-                assert ((1 <= sj) && (sj <= tj) && (tj <= n));
-                dList.add(dj);
-                sList.add(sj);
-                tList.add(tj);
-            }
-            cases.add(new one(rooms, dList, sList, tList));
+        public long queryMin(int l, int r) {
+            return queryMin(l, r, 0, end, root);
         }
-        return cases;
+
+        public void range_add(int l, int r, int val) {
+            range_add(l, r, val, 0, end, root);
+        }
     }
 
     public static List<one> reader() {
@@ -252,11 +218,9 @@ public final class Main {
             return st.nextToken();
         }
 
-        int nextInt() {return Integer.parseInt(next());}
-
-        long nextLong() {return Long.parseLong(next());}
-
-        double nextDouble() {return Double.parseDouble(next());}
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
 
         String nextLine() {
             String str = "";

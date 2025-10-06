@@ -30,33 +30,6 @@ public final class Main {
         }
     }
 
-    //
-    public static List<one> read() {
-        final var input = new Scanner(System.in);
-        final List<one> cases = new ArrayList<>();
-        while (input.hasNext()) {
-            final int n = input.nextInt();
-            final int k = input.nextInt();
-            assert ((0 <= n) && (n <= 500_000));
-            assert ((0 <= k) && (k <= n));
-            final List<Integer> credits = new ArrayList<>(n);
-            final List<Integer> scores = new ArrayList<>(n);
-            for (int i = 0; i < n; i++) {
-                final int si = input.nextInt();// s[i] is 学分
-                assert ((1 <= si) && (si <= 1_000));
-                credits.add(si);
-            }
-            for (int i = 0; i < n; i++) {
-                final int ci = input.nextInt(); // c[i] is 成绩
-                assert ((1 <= ci) && (ci <= 1_000));
-                scores.add(ci);
-            }
-            cases.add(new one(credits, scores, k));
-        }
-
-        return cases;
-    }
-
     public static List<one> reader() {
         final var input = new Reader();
         final List<one> cases = new ArrayList<>();
@@ -165,10 +138,6 @@ public final class Main {
         }
 
         int nextInt() {return Integer.parseInt(next());}
-
-        long nextLong() {return Long.parseLong(next());}
-
-        double nextDouble() {return Double.parseDouble(next());}
 
         String nextLine() {
             String str = "";

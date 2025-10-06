@@ -26,30 +26,6 @@ public final class Main {
         }
     }
 
-    public static List<one> read() {
-        final var input = new Scanner(System.in);
-        final List<one> cases = new ArrayList<>();
-        while (input.hasNext()) {
-            final int l = input.nextInt();
-            final int n = input.nextInt();
-            final int m = input.nextInt();
-            assert ((1 <= l) && (l <= 1_000_000_000));
-            assert ((1 <= n) && (n <= 500_000));
-            assert ((1 <= m) && (m <= n + 1));
-            final var posies = new ArrayList<Integer>(n + 2);
-            posies.add(0);
-            for (int i = 0; i < n; i++) {
-                final int r = input.nextInt();
-                assert ((0 <= r) && (r <= l)); // but do not obey r_i < r_{i+1}
-                posies.add(r);
-            }
-            posies.add(l);
-            posies.sort(Integer::compareTo);
-            cases.add(new one(l, posies, m));
-        }
-        return cases;
-    }
-
     public static List<one> reader() {
         final var input = new Reader();
         final List<one> cases = new ArrayList<>();
@@ -169,10 +145,6 @@ public final class Main {
         }
 
         int nextInt() {return Integer.parseInt(next());}
-
-        long nextLong() {return Long.parseLong(next());}
-
-        double nextDouble() {return Double.parseDouble(next());}
 
         String nextLine() {
             String str = "";

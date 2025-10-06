@@ -19,30 +19,6 @@ public final class Main {
             this.factors = factors;
         }
     }
-
-    public static List<one> read() {
-        final var input = new Scanner(System.in);
-        final List<one> cases = new ArrayList<>();
-        final int testcases = input.nextInt();
-        assert ((0 <= testcases) && (testcases <= 20));
-        for (int i = 0; i < testcases; i++) {
-            final int n = input.nextInt();
-            final List<Double> locations = new ArrayList<>(n);
-            final List<Double> factors = new ArrayList<>(n);
-            assert ((1 <= n) && (n <= 50_000));
-            for (int j = 0; j < n; j++) {
-                final double x_i = input.nextDouble();
-                final double w_i = input.nextDouble();
-                assert ((-1_000_000 <= x_i) && (x_i < 1_000_000));
-                assert ((0 < w_i) && (w_i < 15));
-                locations.add(x_i);
-                factors.add(w_i);
-            }
-            cases.add(new one(locations, factors));
-        }
-        return cases;
-    }
-
     public static List<one> reader() {
         final var input = new Reader();
         final List<one> cases = new ArrayList<>();
@@ -145,8 +121,6 @@ public final class Main {
         }
 
         int nextInt() {return Integer.parseInt(next());}
-
-        long nextLong() {return Long.parseLong(next());}
 
         double nextDouble() {return Double.parseDouble(next());}
 

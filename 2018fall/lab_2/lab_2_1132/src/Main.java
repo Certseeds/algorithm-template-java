@@ -22,27 +22,6 @@ public final class Main {
         }
     }
 
-    public static List<one> read() {
-        final var input = new Scanner(System.in);
-        final int testcases = input.nextInt();
-        assert ((1 <= testcases) && (testcases <= 100));
-        final var cases = new ArrayList<one>(testcases);
-        for (int i = 0; i < testcases; i++) {
-            final int n = input.nextInt();
-            final int m = input.nextInt();
-            assert ((1 <= n) && (n <= 5_000));
-            assert ((1 <= m) && (m <= 1000_000_00));
-            final var numbers = new ArrayList<Integer>(n);
-            for (int j = 0; j < n; j++) {
-                final int a = input.nextInt();
-                assert ((1 <= a) && (a <= 1000_000));
-                numbers.add(a);
-            }
-            cases.add(new one(numbers, m));
-        }
-        return cases;
-    }
-
     public static List<one> reader() {
         final var input = new Reader();
         final int testcases = input.nextInt();

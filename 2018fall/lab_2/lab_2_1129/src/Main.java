@@ -40,19 +40,6 @@ public final class Main {
 
     }
 
-    public static List<funcer> read() {
-        final var input = new Scanner(System.in);
-        final int testcases = input.nextInt();
-        assert ((1 <= testcases) && (testcases <= 100));
-        final var cases = new ArrayList<funcer>(testcases);
-        for (int i = 0; i < testcases; i++) {
-            final double number = input.nextDouble();
-            assert ((0 < number) && (number < Math.pow(10, 10)));
-            cases.add(new funcer(number));
-        }
-        return cases;
-    }
-
     public static List<funcer> reader() {
         final var input = new Reader();
         final int testcases = input.nextInt();
@@ -126,18 +113,6 @@ public final class Main {
 
         int nextInt() {return Integer.parseInt(next());}
 
-        long nextLong() {return Long.parseLong(next());}
-
         double nextDouble() {return Double.parseDouble(next());}
-
-        String nextLine() {
-            String str = "";
-            try {
-                str = br.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return str;
-        }
     }
 }
