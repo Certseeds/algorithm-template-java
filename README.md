@@ -56,8 +56,8 @@ OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
 ### 快速上手(5 分钟)
 
 1. 使用 IDEA 打开仓库, 等待 Maven 依赖下载完成
-2. 打开 `lab_welcome/lab_welcome_a/test/MainTest.java` 直接运行测试
-3. 修改 `lab_welcome/lab_welcome_a/src/Main.java` 的 `cal` 实现, 重新运行测试验证
+2. 打开 `lab_example/a/test/MainTest.java` 直接运行测试
+3. 修改 `lab_example/a/src/Main.java` 的 `cal` 实现, 重新运行测试验证
 4. 提交到 OJ 时, 复制该题目的 `Main.java` 全文(包含嵌入的快读类)进行提交
 
 命令行操作:
@@ -66,15 +66,15 @@ OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
 # 运行根项目所有测试
 mvn -q test
 
-# 仅运行某一题(例如 lab_welcome_a)的测试
-mvn -q -pl lab_welcome/lab_welcome_a -am test
+# 仅运行某一题(例如 lab_example/a)的测试
+mvn -q -pl lab_example/a -am test
 ```
 
 ## 实际场景
 
 ### A+B: lab_00_A , 测试样例
 
-+ 这个问题较为简单, 见[A+B](./lab_welcome/lab_welcome_a/src/Main.java)  解决起来不复杂
++ 这个问题较为简单, 见[A+B](./lab_example/a/src/Main.java)  解决起来不复杂
 
 + 虽然手工一个一个输入, 然后肉眼观察输出.但是如果我们希望严谨的测试, 要100组测试数据, 难道每次出新版本都要手动输入100次? </br>
 显然, 有更好的解决方式: 使用**测试框架**
@@ -83,15 +83,15 @@ mvn -q -pl lab_welcome/lab_welcome_a -am test
 
 比如, 我们有四组数据, 第一组, 第二组测试边界值, 第三组使用随机数测试对偶性与正确性, 第四组测试几个手动的随机值
 
-参见[test_for_lab00_A](./lab_welcome/lab_welcome_a/test/MainTest.java)
+参见[test_for_lab00_A](./lab_example/a/test/MainTest.java)
 
-+ 这样一来, 我们只需要每次修改完主文件之后, run `lab_welcome_a/test/MainTest.java`, 对其进行调用, 就能验证其在所有的测试用例上的正确性.</br>
++ 这样一来, 我们只需要每次修改完主文件之后, run `lab_example/a/test/MainTest.java`, 对其进行调用, 就能验证其在所有的测试用例上的正确性.</br>
 测试的结果也会出现在输出中
 
 ### 文件输入输出重定向 part1
 
 + 常见于tree, graph类的问题, debug需要的数据集都比较大, 不方便直接写在代码中
-+ 比如[判断二分图](./lab_welcome/lab_welcome_c/src/Main.java), 一张图可以有几十上百个node, 写在内部占用空间太大
++ 比如[判断二分图](./lab_example/c/src/Main.java), 一张图可以有几十上百个node, 写在内部占用空间太大
 + 而在这里, 使用`Redirect`对象, 便可以省去手动输入的方式
 
   ``` java
@@ -112,7 +112,7 @@ mvn -q -pl lab_welcome/lab_welcome_a -am test
 
 ### 文本输入输出重定向 part2
 
-+ 一般来说, 题目的输出不会太复杂, 但是反例也不是没有: 比如专门考输出的[立体图](./lab_welcome/lab_welcome_d/src/Main.java)
++ 一般来说, 题目的输出不会太复杂, 但是反例也不是没有: 比如专门考输出的[立体图](./lab_example/d/src/Main.java)
 + 这种情况下, 使用 Java 的标准输入/输出重定向就可以较为方便地处理输入, 同时保存输出便于调试
 
   ``` java

@@ -11,15 +11,15 @@
     </parent>
     <packaging>pom</packaging>
     <groupId>nanoseeds.algorithm-template</groupId>
-    <artifactId>lab_welcome</artifactId>
+    <artifactId>lab_example</artifactId>
     <version>${revision}</version>
     <name>${project.groupId}.${project.artifactId}</name>
     <description>${project.groupId}.${project.artifactId}</description>
     <modules>
-        <module>lab_welcome_a</module>
-        <module>lab_welcome_b</module>
-        <module>lab_welcome_c</module>
-        <module>lab_welcome_d</module>
+        <module>a</module>
+        <module>b</module>
+        <module>c</module>
+        <module>d</module>
     </modules>
     <dependencies>
         <dependency>
