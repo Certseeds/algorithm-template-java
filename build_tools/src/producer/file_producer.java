@@ -13,11 +13,8 @@ import java.util.stream.Collectors;
 public final class file_producer {
 
     public static final List<String> labs = List.of("01", "02", "03", "04", "05", "06", "07", "08", "09", "bonus");
-    public static final List<String> problem_order = List.of("A", "B", "C", "D", "E", "F", "G", "H");
+    public static final List<String> problem_order = List.of("A", "B", "C", "D", "E");
     public static final List<String> test_datas = List.of("01");
-
-    // labs = List.of("00"),
-    // problem_order = List.of("E");
 
     public static void main(String[] args) throws IOException {
         final List<lab> LabList = labs.stream()
