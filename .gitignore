@@ -328,3 +328,4 @@ dist
 # End of https://www.toptal.com/developers/gitignore/api/java,visualstudiocode,jetbrains+all,macos,node,maven
 .ci-friendly-pom.xml
 *.test.out
+AGENTS.md
