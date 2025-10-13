@@ -2,7 +2,7 @@
 SPDX-License-Identifier: CC-BY-NC-SA-4.0
 ---
 
-# lab_example_1172
+# lab_welcome_1172
 
 > problem_id: 1172
 

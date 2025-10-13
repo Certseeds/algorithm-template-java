@@ -1,4 +1,4 @@
-# lab_example_1166
+# lab_welcome_1166
 
 > problem_id: 1166
 

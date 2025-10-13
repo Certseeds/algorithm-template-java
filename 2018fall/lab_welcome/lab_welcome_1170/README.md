@@ -2,7 +2,7 @@
 SPDX-License-Identifier: CC-BY-NC-SA-4.0
 ---
 
-# lab_example_D: maximum difference
+# lab_welcome_D: maximum difference
 
 > problem_id: 1170
 

@@ -2,7 +2,8 @@
 
 > cid: 1030
 
-Welcome to (autumn) DSAA welcome lab!  
+Welcome to (autumn) DSAA welcome lab!
+
 Enjoy this Lab!
 
 There are seven problems for you to solve.

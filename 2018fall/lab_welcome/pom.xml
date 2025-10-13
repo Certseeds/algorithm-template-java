@@ -11,18 +11,18 @@
     </parent>
     <packaging>pom</packaging>
     <groupId>nanoseeds.algorithm-template.2018fall</groupId>
-    <artifactId>lab_example</artifactId>
+    <artifactId>lab_welcome</artifactId>
     <version>${revision}</version>
     <name>${project.groupId}.${project.artifactId}</name>
     <description>${project.groupId}.${project.artifactId}</description>
     <modules>
-        <module>lab_example_1166</module>
-        <module>lab_example_1167</module>
-        <module>lab_example_1168</module>
-        <module>lab_example_1169</module>
-        <module>lab_example_1170</module>
-        <module>lab_example_1171</module>
-        <module>lab_example_1172</module>
+        <module>lab_welcome_1166</module>
+        <module>lab_welcome_1167</module>
+        <module>lab_welcome_1168</module>
+        <module>lab_welcome_1169</module>
+        <module>lab_welcome_1170</module>
+        <module>lab_welcome_1171</module>
+        <module>lab_welcome_1172</module>
     </modules>
     <dependencies>
         <dependency>

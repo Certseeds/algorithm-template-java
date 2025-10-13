@@ -16,7 +16,7 @@
     <name>${project.groupId}.${project.artifactId}</name>
     <description>${project.groupId}.${project.artifactId}</description>
     <modules>
-        <module>lab_example</module>
+        <module>lab_welcome</module>
         <module>lab_2</module>
         <module>lab_3</module>
         <module>lab_4</module>
