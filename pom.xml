@@ -117,6 +117,7 @@
         <module>include</module>
         <module>lab_example</module>
         <module>2018fall</module>
+        <module>2025fall</module>
     </modules>
     <repositories>
         <repository>
