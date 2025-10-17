@@ -24,7 +24,7 @@ public class question {
     }
 
     public String subPom() {
-        return String.format("        <module>%2$s</module>\n", lab_number, ques_number);
+        return String.format("        <module>%1$s-%2$s</module>\n", lab_number, ques_number);
     }
 
     public void create_dir() {
