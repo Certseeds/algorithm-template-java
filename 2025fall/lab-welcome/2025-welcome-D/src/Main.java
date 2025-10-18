@@ -22,10 +22,10 @@ public final class Main {
         for (int t = 0; t < T; ++t) {
             final String s = input.next();
             assert (s.length() == 28);
-            int[] tiles = new int[TILE_KIND];
+            final int[] tiles = new int[TILE_KIND];
             for (int i = 0; i < 14; ++i) {
-                char num = s.charAt(2 * i);
-                char suite = s.charAt(2 * i + 1);
+                final char num = s.charAt(2 * i);
+                final char suite = s.charAt(2 * i + 1);
                 int suiteIdx = -1;
                 for (int j = 0; j < SUITES.length; ++j) {
                     if (SUITES[j] == suite) {
@@ -34,7 +34,7 @@ public final class Main {
                     }
                 }
                 assert (suiteIdx != -1);
-                int rank = num - '0';
+                final int rank = num - '0';
                 assert ((1 <= rank) && (rank <= SUITE_LENGTHS[suiteIdx]));
                 int idx = SUITE_OFFSETS[suiteIdx] + (rank - 1);
                 tiles[idx]++;
@@ -55,9 +55,11 @@ public final class Main {
     private static boolean isWinning(int[] tiles) {
         for (int i = 0; i < TILE_KIND; ++i) {
             if (tiles[i] >= 2) {
-                int[] copy = Arrays.copyOf(tiles, TILE_KIND);
+                final int[] copy = Arrays.copyOf(tiles, TILE_KIND);
                 copy[i] -= 2;
-                if (canDivide(copy, 4)) return true;
+                if (canDivide(copy, 4)) {
+                    return true;
+                }
             }
         }
         return false;
@@ -65,7 +67,11 @@ public final class Main {
 
     private static boolean canDivide(int[] tiles, int groupLeft) {
         if (groupLeft == 0) {
-            for (int v : tiles) if (v != 0) return false;
+            for (int v : tiles) {
+                if (v != 0) {
+                    return false;
+                }
+            }
             return true;
         }
         for (int i = 0; i < TILE_KIND; ++i) {

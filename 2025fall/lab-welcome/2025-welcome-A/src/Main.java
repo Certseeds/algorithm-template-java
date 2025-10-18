@@ -56,7 +56,7 @@ public final class Main {
 
     // write: 输出
     public static void output(Iterable<String> result) {
-        StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder();
         for (String s : result) {
             sb.append(s).append('\n');
         }
