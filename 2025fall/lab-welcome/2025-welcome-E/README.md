@@ -1,3 +1,3 @@
-# 3D打印问题
+# Maximum difference
 
-参考 `2018fall/lab_welcome/lab_welcome_1170`
+参考 [2018fall/lab_welcome/lab_welcome_1170](../../../2018fall/lab_welcome/lab_welcome_1170/README.md)

@@ -1,3 +1,5 @@
+# Counting Triples
+
 ## Description
 
 There is an array $a_1, a_2, \ldots, a_n$.

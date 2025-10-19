@@ -1,3 +1,5 @@
+# Sum
+
 ## Description
 
 Given $n$, please calculate $S(n)$ where

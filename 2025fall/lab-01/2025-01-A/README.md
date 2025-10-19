@@ -1,3 +1,5 @@
+# Binary Search
+
 ## Description
 
 Given a nondecreasing sequence $a$ with length $n$.

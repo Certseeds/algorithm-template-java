@@ -1,3 +1,5 @@
+# Merge
+
 ## Description
 
 Merge is an essiential step when you implement Merge Sort Algorithm.

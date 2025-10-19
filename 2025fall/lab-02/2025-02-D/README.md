@@ -1,3 +1,5 @@
+# Arrange Seats in a Round Table
+
 ## Description
 
 Suppose there are n students in CS203 DSAA, the height of each student is $a_i (1 \leq i \leq n)$.

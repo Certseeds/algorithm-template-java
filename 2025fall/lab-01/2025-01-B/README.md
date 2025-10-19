@@ -1,3 +1,5 @@
+# Simple Problem
+
 ## Description
 
 Given a non-decreasing array $A$, containing $N$ positive integers $a_1, a_2, \ldots, a_n$.
