@@ -19,5 +19,6 @@
     <modules>
         <module>lab-welcome</module>
         <module>lab-01</module>
+        <module>lab-02</module>
     </modules>
 </project>
