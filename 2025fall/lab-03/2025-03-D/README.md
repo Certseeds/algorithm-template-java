@@ -42,9 +42,20 @@ For each test case, output the median gift values every odd days.
 
 ### 算法分析
 
-本题用指针实现的 Treap（树堆）维护有序集合，Treap 节点包含 value、priority、size、左右子树指针。主要接口：
+#### 双堆
+
+本题采用双堆法（最大堆+最小堆）实时维护中位数:
+
+- 每次插入新礼物后，调整堆平衡，保证最大堆比最小堆多至多一个元素.
+- 奇数天时，最大堆堆顶即为当前中位数.
+
+整体复杂度 $O(n \log n)$，空间 $O(n)$
+
+#### treap
+
+本题用指针实现的 Treap（树堆）维护有序集合，Treap 节点包含 value、priority、size、左右子树指针. 主要接口:
 
 - insert(value): $O(\log n)$
 - kth(k): $O(\log n)$
 
-每遇奇数天插入新值并查询中位数。Treap 保证插入和第 k 小查询均为 $O(\log n)$。整体 $O(n \log n)$。断言保证输入范围。
+每遇奇数天插入新值并查询中位数. Treap 保证插入和第 k 小查询均为 $O(\log n)$. 整体 $O(n \log n)$
