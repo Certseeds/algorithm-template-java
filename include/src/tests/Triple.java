@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 package tests;
 
 public final class Triple<T, U, V> {

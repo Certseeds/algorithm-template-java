@@ -22,7 +22,7 @@ public final class Main {
             assert (scores.size() == credits.size());
             classes = Stream.iterate(0, x -> x + 1)
                 .limit(classNum)
-                .map(x -> new AbstractMap.SimpleImmutableEntry<>(credits.get(x), scores.get(x)))
+                .map(x -> Map.entry(credits.get(x), scores.get(x)))
                 // .sorted(Map.Entry.<Integer, Integer>comparingByValue(Comparator.reverseOrder()).thenComparing(Map.Entry.comparingByKey()))
                 // 不能预先排序的问题在于, 大于score的一边需要按comparingByKey从大到小排,小于的另外一边需要从小到大排序.
                 .collect(Collectors.toUnmodifiableList());

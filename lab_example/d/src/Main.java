@@ -7,12 +7,12 @@ import java.util.*;
 
 public final class Main {
     private static final List<Map.Entry<Integer, String>> spis = List.of(
-        new AbstractMap.SimpleImmutableEntry<>(2, "+---+")
-        , new AbstractMap.SimpleImmutableEntry<>(1, "/   /|")
-        , new AbstractMap.SimpleImmutableEntry<>(0, "+---+ |")
-        , new AbstractMap.SimpleImmutableEntry<>(0, "|   | +")
-        , new AbstractMap.SimpleImmutableEntry<>(0, "|   |/")
-        , new AbstractMap.SimpleImmutableEntry<>(0, "+---+")
+        Map.entry(2, "+---+")
+        , Map.entry(1, "/   /|")
+        , Map.entry(0, "+---+ |")
+        , Map.entry(0, "|   | +")
+        , Map.entry(0, "|   |/")
+        , Map.entry(0, "+---+")
     );
 
     public static int[][] reader() {

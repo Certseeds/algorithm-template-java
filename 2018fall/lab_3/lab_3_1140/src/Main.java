@@ -32,7 +32,7 @@ public final class Main {
                 final int exponent = input.nextInt();
                 assert ((-10000 <= coefficient) && (coefficient <= 10000));
                 assert ((0 <= exponent) && (exponent <= 1000_000_000));
-                fst.add(new AbstractMap.SimpleImmutableEntry<>(coefficient, exponent));
+                fst.add(Map.entry(coefficient, exponent));
             }
             final int m = input.nextInt();
             assert ((0 <= m) && (m <= 1_000));
@@ -42,7 +42,7 @@ public final class Main {
                 final int exponent = input.nextInt();
                 assert ((-10000 <= coefficient) && (coefficient <= 10000));
                 assert ((0 <= exponent) && (exponent <= 1000_000_000));
-                snd.add(new AbstractMap.SimpleImmutableEntry<>(coefficient, exponent));
+                snd.add(Map.entry(coefficient, exponent));
             }
             cases.add(new one(fst, snd));
         }
