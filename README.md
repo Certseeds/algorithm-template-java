@@ -183,7 +183,7 @@ DSAA既然内含Data structure, 就势必涉及到类似Node, Tree, Graph等等�
 
 ## 最后
 
-C++的CS203库:[CS203_DSAA_template](https://github.com/Certseeds/CS203_DSAA_template)
+C++的模板库:[algorithm-template](https://github.com/Certseeds/algorithm-template)
 
 TODO: 介绍使用 Cyaron 生成数据
 
