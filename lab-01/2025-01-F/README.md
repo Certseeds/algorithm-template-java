@@ -48,3 +48,18 @@ DDD
 ## HINT
 
 Eve can choose not to move at every minute.
+
+### 解释算法
+
+本题要求求 Eve 至少多少分钟能追上 Neko。
+
+实现思路如下：
+
+1. 快读读入初始坐标、周期长度 n 和 Neko 的移动序列 s。
+2. 预处理 s 的前缀和，得到每一轮周期 Neko 的位移。
+3. 二分答案 t，判断 t 分钟后 Eve 能否追上 Neko。
+4. t 分钟时 Neko 的位置 = 初始 + 完整周期数 * 总位移 + 剩余步的前缀和。
+5. 只要曼哈顿距离 <= t，Eve 就能追上。
+6. 若二分到极大值仍不可达，输出 -1。
+
+时间复杂度 O(n log(maxT))，空间 O(n)。

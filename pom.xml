@@ -117,6 +117,7 @@
         <module>include</module>
         <module>lab_example</module>
         <module>lab-welcome</module>
+        <module>lab-01</module>
     </modules>
     <repositories>
         <repository>
