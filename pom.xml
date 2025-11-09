@@ -10,7 +10,7 @@
     <name>${project.artifactId}</name>
     <description>${project.artifactId}</description>
     <properties>
-        <revision>0.0.9</revision>
+        <revision>0.0.8</revision>
         <java.version>11</java.version>
         <maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
         <junit.version>5.13.4</junit.version>
@@ -116,6 +116,17 @@
         <module>build_tools</module>
         <module>include</module>
         <module>lab_example</module>
+        <module>lab_01</module>
+        <module>lab_02</module>
+        <module>lab_03</module>
+        <module>lab_04</module>
+        <module>lab_05</module>
+        <module>lab_06</module>
+        <module>lab_07</module>
+        <module>lab_08</module>
+        <module>lab_09</module>
+        <module>lab_bonus</module>
+        <module>lab_welcome</module>
     </modules>
     <repositories>
         <repository>
