@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+
 package tests;
 
 public final class Quaternion<T, U, V, W> {

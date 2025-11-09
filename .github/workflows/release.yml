@@ -38,7 +38,7 @@ jobs:
           cache: 'maven'
 
       - name: unix-like clean build test
-        run: mvn clean compile test
+        run: mvn clean compile test -T 1C
 
   # This workflow contains a single job called "build"
   build:

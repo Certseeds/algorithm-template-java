@@ -5,12 +5,12 @@
 
     <parent>
         <groupId>nanoseeds.algorithm-template</groupId>
-        <artifactId>lab_%1$s</artifactId>
+        <artifactId>lab_example</artifactId>
         <version>${revision}</version>
         <relativePath>./../pom.xml</relativePath>
     </parent>
-    <groupId>nanoseeds.algorithm-template.lab_%1$s</groupId>
-    <artifactId>%1$s-%2$s</artifactId>
+    <groupId>nanoseeds.algorithm-template.lab_example</groupId>
+    <artifactId>c</artifactId>
     <version>${revision}</version>
     <name>${project.groupId}.${project.artifactId}</name>
     <description>${project.groupId}.${project.artifactId}</description>

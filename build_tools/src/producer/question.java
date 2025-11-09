@@ -11,9 +11,9 @@ import java.util.function.Consumer;
 
 public class question {
     private static final String Main =
-        constant.FILE_HEADER_STR + file_producer.read_file("template/java_template.java");
+        constant.FILE_HEADER_STR + file_producer.read_file("template/Main.java");
     private static final String MainTest =
-        constant.FILE_HEADER_STR + file_producer.read_file("template/java_test_template.java");
+        constant.FILE_HEADER_STR + file_producer.read_file("template/MainTest.java");
     private final String lab_number, ques_number;
     private final String sub_sub_pom;
 
@@ -24,7 +24,7 @@ public class question {
     }
 
     public String subPom() {
-        return String.format("        <module>lab_%1$s_%2$s</module>\n", lab_number, ques_number);
+        return String.format("        <module>%1$s-%2$s</module>\n", lab_number, ques_number);
     }
 
     public void create_dir() {

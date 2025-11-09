@@ -56,8 +56,8 @@ OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
 ### 快速上手(5 分钟)
 
 1. 使用 IDEA 打开仓库, 等待 Maven 依赖下载完成
-2. 打开 `lab_welcome/lab_welcome_a/test/MainTest.java` 直接运行测试
-3. 修改 `lab_welcome/lab_welcome_a/src/Main.java` 的 `cal` 实现, 重新运行测试验证
+2. 打开 `lab_example/a/test/MainTest.java` 直接运行测试
+3. 修改 `lab_example/a/src/Main.java` 的 `cal` 实现, 重新运行测试验证
 4. 提交到 OJ 时, 复制该题目的 `Main.java` 全文(包含嵌入的快读类)进行提交
 
 命令行操作:
@@ -66,15 +66,15 @@ OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
 # 运行根项目所有测试
 mvn -q test
 
-# 仅运行某一题(例如 lab_welcome_a)的测试
-mvn -q -pl lab_welcome/lab_welcome_a -am test
+# 仅运行某一题(例如 lab_example/a)的测试
+mvn -q -pl lab_example/a -am test
 ```
 
 ## 实际场景
 
 ### A+B: lab_00_A , 测试样例
 
-+ 这个问题较为简单, 见[A+B](./lab_welcome/lab_welcome_a/src/Main.java)  解决起来不复杂
++ 这个问题较为简单, 见[A+B](./lab_example/a/src/Main.java)  解决起来不复杂
 
 + 虽然手工一个一个输入, 然后肉眼观察输出.但是如果我们希望严谨的测试, 要100组测试数据, 难道每次出新版本都要手动输入100次? </br>
 显然, 有更好的解决方式: 使用**测试框架**
@@ -83,15 +83,15 @@ mvn -q -pl lab_welcome/lab_welcome_a -am test
 
 比如, 我们有四组数据, 第一组, 第二组测试边界值, 第三组使用随机数测试对偶性与正确性, 第四组测试几个手动的随机值
 
-参见[test_for_lab00_A](./lab_welcome/lab_welcome_a/test/MainTest.java)
+参见[test_for_lab00_A](./lab_example/a/test/MainTest.java)
 
-+ 这样一来, 我们只需要每次修改完主文件之后, run `lab_welcome_a/test/MainTest.java`, 对其进行调用, 就能验证其在所有的测试用例上的正确性.</br>
++ 这样一来, 我们只需要每次修改完主文件之后, run `lab_example/a/test/MainTest.java`, 对其进行调用, 就能验证其在所有的测试用例上的正确性.</br>
 测试的结果也会出现在输出中
 
 ### 文件输入输出重定向 part1
 
 + 常见于tree, graph类的问题, debug需要的数据集都比较大, 不方便直接写在代码中
-+ 比如[判断二分图](./lab_welcome/lab_welcome_c/src/Main.java), 一张图可以有几十上百个node, 写在内部占用空间太大
++ 比如[判断二分图](./lab_example/c/src/Main.java), 一张图可以有几十上百个node, 写在内部占用空间太大
 + 而在这里, 使用`Redirect`对象, 便可以省去手动输入的方式
 
   ``` java
@@ -112,7 +112,7 @@ mvn -q -pl lab_welcome/lab_welcome_a -am test
 
 ### 文本输入输出重定向 part2
 
-+ 一般来说, 题目的输出不会太复杂, 但是反例也不是没有: 比如专门考输出的[立体图](./lab_welcome/lab_welcome_d/src/Main.java)
++ 一般来说, 题目的输出不会太复杂, 但是反例也不是没有: 比如专门考输出的[立体图](./lab_example/d/src/Main.java)
 + 这种情况下, 使用 Java 的标准输入/输出重定向就可以较为方便地处理输入, 同时保存输出便于调试
 
   ``` java
@@ -139,7 +139,7 @@ mvn -q -pl lab_welcome/lab_welcome_a -am test
 1. 使用两层子模块来抽象 lab-question , 给每个 question 一个独立文件夹, 有利于在 README.md 里面撰写文档, 梳理思路
 2. 使用子模块来实现, 每一个类内不需要加入 `package ...`路径, 这样可以直接复制 Main.java 全文到 OJ内, 方便实现
 
-## 为什么要将 `读取` `数据处理` `输出` 分开?
+### 为什么要将 `读取` `数据处理` `输出` 分开?
 
 + 便于理清思路, 读完题目之后, 不管别的, 先把数据读入, 输出的函数写好, 方便后续写作
 + 交流代码逻辑的时候不会受到无关逻辑的影响
@@ -147,45 +147,54 @@ mvn -q -pl lab_welcome/lab_welcome_a -am test
 + 便于使用测试
 + 便于使用替换快读与scanner
 
-## 为什么要选择Java做题
+### 为什么要选择Java做题
 
 1. SUSTech 大一默认用 Java 教学
 2. Java 对字符串处理有一些预置方法, 挺好用
 3. 可以在 Windows 环境下开发, 完全不需要安装 MSVC/gcc 环境
 4. 没了, 欢迎补充
 
-## ~~为什么要选择C++做题~~
+> C++的模板库:[algorithm-template](https://github.com/Certseeds/algorithm-template)
 
-1. C++是dalao们的选择: 直接去
+## 这个模板仓库加速了什么?
 
-+ [dalao1](https://acm.sustech.edu.cn/onlinejudge/status.php?user_id=11710724&jresult=4)
-+ [dalao2](https://acm.sustech.edu.cn/onlinejudge/status.php?user_id=11612908&jresult=4)
-+ [dalao3](https://acm.sustech.edu.cn/onlinejudge/status.php?user_id=11712510&jresult=4)
+本仓库的目标是把个人刷题与题目工程化、可复用化, 缩短"写-测-改-提交"的反馈回路, 具体体现在下面几点:
 
-等等dalao的解题页面看看, 会发现在排行榜榜首的人, 绝大多数题目使用的都是C++
+### 每个题目有独立目录
 
-1. 速度
+题目放在独立的子目录下, 目录内可以存放题目描述 (中/英)、个人翻译、思路笔记、版本迭代的代码以及特殊说明.
 
-+ OJ 内一般 Java 的最大运行时间都会是 C++ 的 2 倍, 显然是暗示速度之间的差别
-+ 其次, C++可以通过一些优化技巧, 比如下文的优化等操作再获取一些时间上的优势
+这样做的好处是:
 
-### 对数据结构的友好性
++ 不再需要频繁打开网页查题目
++ 方便离线阅读与长期积累
++ 有利于把题解和注释作为学习资料分享或归档.
 
-DSAA既然内含Data structure, 就势必涉及到类似Node, Tree, Graph等等数据结构, 这类数据结构使用C++写, 比较方便理解
+> 有些题目搞一大段描述, 不分段也就罢了, 题目描述还是张图片, 内部恨是吧.
+>
+> <https://acm.sustech.edu.cn/onlinejudge/problem.php?cid=1048&pid=0>
 
-### 对算法友好的性能
+### 在 IDE 与命令行上可通过 JUnit 快速跑通所有用例
 
-作者写树和图相关的题目时, 最头疼的就是Java的爆栈, 有一段时间只要用递归就爆栈, 相同算法修改为C++之后问题就消失了
+每个题目配套的 `Main` 类和 `test` 目录下的 JUnit 测试允许你在 IDE (如 IntelliJ) 里一句 Run 即可执行全部样例. 也可以在命令行通过 `mvn test` 或 `mvn -Dtest=... test` 快速执行, 用最短的时间得到反馈 (通过/TLE/异常等), 加快本地迭代速度.
 
-### 相关资源的丰富程度
+> code-agent 对命令行执行是强依赖, 单靠复制粘贴比对输出有点太繁琐了
 
-不管怎么说, C++是 dalao 的选择, 所以在网络上搜索题目, 得到的大多数答案都是 C/C++, Java 的数量很少
+### 统一的测试用例管理
 
-## 最后
+仓库对用例做了统一命名与分组管理: 把"预期输入" (input)、"预期输出" (expected)、以及运行时产生的"测试输出" (actual)分别归档并以规范化命名存放 (例如 `01.data.in`, `01.data.out`, `01.test.out`). 这种做法便于把高质量的用例共享与复用.
 
-C++的CS203库:[CS203_DSAA_template](https://github.com/Certseeds/CS203_DSAA_template)
+### 使用 Maven/POM 简化提交到 OJ 前的改名与构建流程
 
-TODO: 介绍使用 Cyaron 生成数据
+提交到许多 OJ 需要把类名或包名改为特定格式(例如 `Main`), 或者只上传单个源文件. 仓库通过 `pom.xml` 和简单的脚本约定, 能把项目打包、按需生成单文件提交版本或替换 `Main` 名称, 免去每次手动重命名/复制的繁琐操作, 从而加速"本地通过->提交->得分"的循环.
+
+### module 隔离与长期积累(把库代码与测试分离)
+
+通过模块/目录结构把公共库 (如自实现的数据结构、模板方法)放在 `src` 中, 把单元测试与题目驱动放在 `test` 中. 这样既保持了代码的可维护性, 也方便把好用的手写数据结构逐步积累成可复用的工具箱, 未来可以在新题中直接复用、单测或优化.
+
+### In conclusion
+
+总之, 该模板把"写题"和"工程化测试/复盘"结合起来, 目标是用工程化的手段把题目练习变成可重复、可追溯、可分享的学习循环, 显著提高个人刷题与总结的效率.
 
 ## 可能遇到的问题
 
@@ -197,11 +206,13 @@ TODO: 介绍使用 Cyaron 生成数据
 
 ### copyleft 选择
 
-1. 所有代码(*.java, etc) 基于AGPL-3.0-or-later协议: 限制最强的主流开源协议,
+1. 部分代码(*.java, etc) 基于AGPL-3.0-or-later协议: 限制最强的主流开源协议,
     + 从设计上只为了源码交付
     + 具体内容请看[`LICENSE_AGPL-3.0-or-later.md`](./LICENSE_AGPL_V3_0.md)
 
-2. 所有其他文件(主要是*.md)基于CC-BY-NC-SA-4.0(或以后版本)协议
+2. 所有脚本/LLM生成的代码 基于 Apache 2.0协议 [`LICENSE_APACHE`](./LICENSE_APACHE_2_0.md)
+
+3. 所有其他文件(主要是*.md)基于CC-BY-NC-SA-4.0(或以后版本)协议
     + 相同方式共享-署名-非商业性使用的知识共享协议4.0或任何以后版本
     + 署名(BY)-使用到相应内容的其他地方, 应该加以注释, 保留来源
     + 非商业性使用(NC)-默认情况下, 只要署名, 可以在不盈利的情况下使用.(并不是指商业情况不能用, 而是需要和原作者沟通)
