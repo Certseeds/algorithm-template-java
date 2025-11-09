@@ -1,0 +1,164 @@
+---
+SPDX-License-Identifier: CC-BY-NC-SA-4.0
+---
+
+# lab_3_1142
+
+## Description
+
+Macau casino has a popular game: horse racing.
+
+However, the rule is different from the normal ones.
+
+It is about guessing the $k$th fastest horse.
+
+Joy wants to apply a job in the casino, but his boss give him a test.
+
+He can get the job only if he passes the test.
+
+The rules are as followed:
+
+Given the strength of $n$ horses, (to simplify, the strength of the $n$ horses is a permutation of $1$ to $n$, and horse with larger strength run faster), the boss wants to know the sum of all the $k$th fastest horse in every consecutive interval of the $n$ horses, and remember only the intervals equal or longer than $k$ should be considered.
+
+Joy is not good at math, so he turns to you for help.
+
+### Input
+
+There is only one integer $T$ $(1 \leq T \leq 10)$ in the first line, denoting the number of test cases.
+
+For each test case, the first line includes two integers $n$ and $k$.
+$k \leq \min(n, 80)$, the sum of $n$ in all test cases does not exceed $5 \times 10^5$.
+
+The second line is the strength of the $n$ horses.
+
+### Output
+
+For each test case, output a line containing the answer.
+
+### Sample Input
+
+``` log
+1
+5 2
+1 2 3 4 5
+```
+
+### Sample Output
+
+``` log
+30
+```
+
+## 解析输入
+
+### part1
+
+```log
+Input:
+1
+5 2
+1 2 3 4 5
+Output:
+30
+```
+
+5*5=25<30, 很显然这里并不是说简单的拿(1,2)拿一个2,(2,3)拿一个3这样来搞的, 而是另一种方式.
+
+`every consecutive interval of the n horses, and remember only the intervals equal or longer than k should be considered.`
+
+猜想是拿所有的length>=k的interval, 然后拿kth
+
+对length2: 1+2+3+4
+对length3: 2+3+4
+对length4: 3+4
+对length5: 4
+
+求和为 10+9+7+4=30
+
+bingo, 看题目里说, 似乎整个序列就是a[n]=n+1
+
+## sloves
+
+### part1
+
+从上面的分析也可以看出来, 可以形成一个金字塔, 原理是只考虑length>=k,而一旦前面确定之后, 后面再追加多少个其实都不变了, 可以简单用还有多少个来乘出来.
+
+因此, 对于一个长度为n的[1,2,3,4....n]序列, 对长度为k进行采样.
+
+需要取到最多n+1-k个值, 分别是[1...n+1-k]
+
+而对于一个n+1-k的值来说, 算上原本的一个, 最多有n+1-k个值,所以是(n+1-k)^2
+
+以此类推, 是(n+1-k)^2+(n-k)^2+...+(1)^2=(n+1-k)(n+2-k)(2n+3-2k)/6
+
+对n=5,k=2带入, 可得4*5*9/6=30
+
+Wrong Anseer
+
+### part2
+
+重新审题, `to simplify, the strength of the n horses is a permutation of 1 to n`, 说明只是一个{1,2,...,n-1, n}的排列,而不是顺序的.
+
+这样的话就不是有序的数组了, 不能直接取值来做判断. 也不能累乘, 第一想法是搞一个优先队列,
+
+这里有几种做法, 
++ 可以考虑优先扫描相同长度的序列, 序列长度不断递增
++ 可以考虑优先扫描相同起始的序列, 序列从k->n不断递增, 触达max之后起始位置+1
++ 还可以考虑来回震荡,{1,2},{2,3},{3,4}...{n-1,n},--> {n,n-1,n-2}
+
+第一种情况最大的问题是, 由于需要在相同长度的序列之间共享优先队列, 所以需要`push(rightestObject) && remove(leftestObject)`, `remove(Object)`的时间复杂度太高了, 为O(k)
+
+这些个对象会遍历O(n^2)次, O(n^2*(k+logk))顶不住.
+
+第二种不会共享优先队列, 循环被调用(n+1-k)次, 每次有klogk的时间用来建优先队列, (n-k-i)次, 每次2logk的时间来add(object),poll()
+
+$∑(i from 1 to n+1-k) (klogk + (n-k-i)*2logk)$, 基本上也是O(n^2)级别, 会超时
+
+第三种和第一种无异, 也会超时.
+
+### part3
+
+现在让我们重新开始考虑, 我们需要找到的是, 在这(n-k)*(n-k+1)/2个序列中(提前过滤了小于k长度的序列), 第kth-max之值的和.
+
+如果我们不去聚焦于这些个序列, 而是聚焦于从1-N的这N个数字.
+
+我们先选中一个值x, 很显然, 由于这个序列不存在重复的值, 因此, 只有存在(k-1)个其他的值比x大, 此时才x才能成为kth-max.
+
+而这k-1个其他的值之外, 无论这个序列左边拓展任意的值, 右边接上一些小于x的, 还是左右中间存在一些值, 都不影响x当kth-max.
+
+以以下数组举例`5 2 4 1 3`, 分析一下4, 左边只有一个5比它大, 右边没有. 由于k是2, 所以
+
++ 由于右边没有值>4, 因此如果左边界取2/4, 都是无效
++ 当左边界取到5时, 有边界右4,1,3三个选择.
+
+当使用一个惯用伎俩, 对左边界加一个0,pre自指,有边界加一个n+1,next自指, 这样就可以统一处理了.
+
+对4来说, 左边第一个是5, 距离是2, 对5来说左边第一个是0, 距离是1, 但是从左到右的看, 应该将距离置为[1,2]
+分别代表, 5为左边界只有一个可选项, 4作为左边界, 可以向左边附一个2,从而达到两个可选项.
+
+右边第一个是6, 距离是3, 对6来说右边就是自己, 没有了, 按从左到右的顺序置为[3,0]
+分别代表, 以4为有边界, 再附加上两个(<4)的值, 一共有三个可选项, 之后没有了.
+
+这种情况下, 两边形成一个滑动窗口, 窗口长度k, 两者之积就是取4左边第(x-1)(0指自己)个大于他的值为左边界/右边界, 再附加上比它小的值的可能性.
+
+两个向量做一次点乘, 得到结果.
+
+然后问题来了, 如果要从左到右简单的分析的话, 得把整个数组遍历一遍, 时间复杂度又变成O(n)了..., 来n次, 又是O(n^2)
+
+这里我们借用排序的思想, 如果我们先从最小的开始, 对他来说, 所有值都比他大, 所以它只需要想左扫描k个, 右扫描k个就行, 只要不是在边缘, 每一个都是1.
+
+但是这之后呢? 如果不排除掉上一轮的值, 那这一论就变k+1了, 还是会变慢, 到时候均摊复杂度又上去了, 如果要复制一个新数组, 还是O(n)时间.
+
+这时就要引入链表了, 如果我们把数组存在链表内, 每次扫描的时候, 把上一轮的值从链表中删除, 这样就可以保证每次扫描的时候, 都是k个值, 也能保证不复制数组, 使用一个O(1)时间.
+
+因此, 每次扫描, 都是扫描当前的最小值, 链表里面的值都是比当前值大的, 比当前值小的都体现了position里面了.
+
+### 算法分析
+
+本题要求所有长度 $\geq k$ 的区间第 $k$ 大值之和
+
+采用滑动窗口和链表结构, 动态维护区间内元素, 快速查找第 $k$ 大
+
+时间复杂度 $O(nk)$, 空间复杂度 $O(n)$, 适合 $k$ 较小场景
+
+若需更高效可用平衡树优化

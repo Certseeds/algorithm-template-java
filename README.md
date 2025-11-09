@@ -13,6 +13,8 @@
 
 为每一个题目分配独立的编译单元, 专有路径放置测试用例, 并提供重定向读写功能, 可以一键运行多组测试用例
 
+> 本分支存储 2018fall 的代码
+
 ## 如何使用
 
 ### 环境准备
@@ -49,9 +51,8 @@ OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
 
 ### 下载使用
 
-+ 首先请到[release_latest](https://github.com/Certseeds/algorithm-template-java/releases/latest)下载 `script_no_need.zip`
-+ 将其解压, 放到您的代码库中
-  + 也可以直接使用 GitHub 的 "Use this template" 或 Fork 仓库开始
++ 首先请到<https://github.com/Certseeds/algorithm-template-java> 进行clone
++ `git switch 2018fall`
 
 ### 快速上手(5 分钟)
 
@@ -69,70 +70,6 @@ mvn -q test
 # 仅运行某一题(例如 lab_example/a)的测试
 mvn -q -pl lab_example/a -am test
 ```
-
-## 实际场景
-
-### A+B: lab_00_A , 测试样例
-
-+ 这个问题较为简单, 见[A+B](./lab_example/a/src/Main.java)  解决起来不复杂
-
-+ 虽然手工一个一个输入, 然后肉眼观察输出.但是如果我们希望严谨的测试, 要100组测试数据, 难道每次出新版本都要手动输入100次? </br>
-显然, 有更好的解决方式: 使用**测试框架**
-
-+ 在本repo, 使用 `Junit` </br>
-
-比如, 我们有四组数据, 第一组, 第二组测试边界值, 第三组使用随机数测试对偶性与正确性, 第四组测试几个手动的随机值
-
-参见[test_for_lab00_A](./lab_example/a/test/MainTest.java)
-
-+ 这样一来, 我们只需要每次修改完主文件之后, run `lab_example/a/test/MainTest.java`, 对其进行调用, 就能验证其在所有的测试用例上的正确性.</br>
-测试的结果也会出现在输出中
-
-### 文件输入输出重定向 part1
-
-+ 常见于tree, graph类的问题, debug需要的数据集都比较大, 不方便直接写在代码中
-+ 比如[判断二分图](./lab_example/c/src/Main.java), 一张图可以有几十上百个node, 写在内部占用空间太大
-+ 而在这里, 使用`Redirect`对象, 便可以省去手动输入的方式
-
-  ``` java
-  try (Redirect redirect = Redirect.from(DATA_PATH, "01.data.in", "01.test.out");) {// 设定目录 DATA_PATH在文件里有定义
-      Main.output(Main.cal(Main.read())); // 执行
-      final Pair<String, String> p = redirect.compare_double("01.data.out", "01.test.out"); // 获取两个文件中的字符串
-      assertEquals(p.getFirst().length(), p.getSecond().length()); // 比较长度
-      assertEquals(p.getFirst(), p.getSecond()); // 比较文本
-  }
-  ```
-
-    只需要准备好输入的数据与结果, 就可以从文件中读取, 执行后判断结果是否符合预期
-  + test_1 为最简单的逐个判断, 最简单, 代码量最大
-  + test_2 则优化了一些, 但是还是比较麻烦, for循环还需要了解测试样例的个数
-  + test_3 with tuple 则最优雅, 修改起来的难度最小
-  + PS: 此处注意, 引用文件的相对路径
-  + PS2: 模版文件中已经将前面`resources/`预置好, 只需要填写文件名
-
-### 文本输入输出重定向 part2
-
-+ 一般来说, 题目的输出不会太复杂, 但是反例也不是没有: 比如专门考输出的[立体图](./lab_example/d/src/Main.java)
-+ 这种情况下, 使用 Java 的标准输入/输出重定向就可以较为方便地处理输入, 同时保存输出便于调试
-
-  ``` java
-  try (Redirect redirect = Redirect.from(DATA_PATH, "01.data.in", "01.test.out");) {// 设定目录 DATA_PATH在文件里有定义
-      Main.main(init_String);
-      final Pair<String, String> p = redirect.compare_double("01.data.out", "01.test.out");
-      assertEquals(p.getFirst().length(), p.getSecond().length());
-      assertEquals(p.getFirst(), p.getSecond());
-  }
-  ```
-
-  这样就将标准输出重定向到了`01.test.out`中, 并与`01.data.out`比对
-  + 这里需要考虑的是, 谨慎使用`println()`, 因为`println()`的输出与平台有关; 推荐使用 `System.out.print('\n')` 来对齐与 data.out 的比较
-
-### 快读
-
-+ 一般来说, 题目不会卡读入
-+ 但是, 当数据量上来之后, 读取时间不容小看
-+ 所以可以使用每个文件中自带的 Reader / FastReader 类来进行快读
-+ 注意: 多数 OJ 仅允许单文件提交, 因此快读类需嵌入到 `Main.java` 中, 不能抽到外部文件依赖
 
 ## 实现细节
 
