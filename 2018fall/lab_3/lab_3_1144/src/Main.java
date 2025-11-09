@@ -30,7 +30,7 @@ public final class Main {
                 final int exponent = input.nextInt();
                 assert ((-1000 <= coefficient) && (coefficient <= 1000));
                 assert ((-1000 <= exponent) && (exponent <= 1000));
-                fst.add(new AbstractMap.SimpleImmutableEntry<>(coefficient, exponent));
+                fst.add(Map.entry(coefficient, exponent));
             }
             cases.add(new one(fst));
         }
@@ -51,7 +51,7 @@ public final class Main {
                 final List<Map.Entry<Long, Long>> outputList = map.entrySet().stream()
                     .filter(entry -> entry.getValue() != 0 && entry.getKey() != 0) // 指数为0 or 系数为0都会被过滤掉
                     .sorted(Comparator.comparingLong(Map.Entry::getKey)) // 按指数排序
-                    .map(entry -> new AbstractMap.SimpleImmutableEntry<>(entry.getKey()-1, entry.getValue()*entry.getKey()))
+                    .map(entry -> Map.entry(entry.getKey()-1, entry.getValue()*entry.getKey()))
                     .collect(Collectors.toUnmodifiableList());
                 //
                 return outputList;

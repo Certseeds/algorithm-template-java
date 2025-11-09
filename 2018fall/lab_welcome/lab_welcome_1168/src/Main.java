@@ -19,7 +19,7 @@ public final class Main {
             final int m = input.nextInt();
             assert ((1 <= n) && (n <= 1000));
             assert ((1 <= m) && (m <= 1000));
-            cases.add(new AbstractMap.SimpleImmutableEntry<>(n, m));
+            cases.add(Map.entry(n, m));
         }
         return cases;
     }
