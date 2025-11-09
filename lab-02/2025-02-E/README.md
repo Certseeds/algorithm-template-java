@@ -1,3 +1,5 @@
+# Bubble Sort
+
 ## Description
 
 Vince is curious about how many swap times does Bubble Sort need to sort an array.

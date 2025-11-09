@@ -1,3 +1,5 @@
+# Mahhjong
+
 ## Description
 
 Please determine whether one can win with the 14 tiles in her hands or not.

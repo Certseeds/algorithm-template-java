@@ -1,3 +1,5 @@
+# Majsoul
+
 ## Description
 
 Mahjong, one of the most famous games in China, has aroused lanran's interest.

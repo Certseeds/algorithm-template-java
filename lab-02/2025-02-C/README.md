@@ -1,3 +1,5 @@
+# Lucky number
+
 ## Description
 
 Given $n$ numbers $a_1,a_2,...,a_n$, and an integer $k$.
