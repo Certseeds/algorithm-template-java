@@ -196,6 +196,15 @@ mvn -q -pl lab_example/a -am test
 
 总之, 该模板把"写题"和"工程化测试/复盘"结合起来, 目标是用工程化的手段把题目练习变成可重复、可追溯、可分享的学习循环, 显著提高个人刷题与总结的效率.
 
+## 分支管理方式
+
++ [x] 2018fall: <https://github.com/Certseeds/algorithm-template-java/tree/2018fall>
++ [x] 2025fall: <https://github.com/Certseeds/algorithm-template-java/tree/2025fall>
+
+1. master 当前停在从 develop 合并过来的稳定点上, 代表模板主线
+2. `2018fall` 在更早的共同祖先处分出, 只有一次初始化提交, 保持 2018 年秋季模板的独立快照, 不再合入 master
+3. `2025fall` 则基于同一祖先持续前进, 累积了 2025 年各次实验的提交, 不再合入 master, 当年学习者按需同步这一系列更新
+
 ## 可能遇到的问题
 
 1. 提示找不到Jar包
