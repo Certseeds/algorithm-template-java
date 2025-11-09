@@ -118,6 +118,7 @@
         <module>lab_example</module>
         <module>lab-welcome</module>
         <module>lab-01</module>
+        <module>lab-02</module>
     </modules>
     <repositories>
         <repository>
