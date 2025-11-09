@@ -329,3 +329,5 @@ dist
 .ci-friendly-pom.xml
 *.test.out
 AGENTS.md
+meta.csv
+meta.json
