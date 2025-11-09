@@ -116,7 +116,6 @@
         <module>build_tools</module>
         <module>include</module>
         <module>lab_example</module>
-        <module>2018fall</module>
     </modules>
     <repositories>
         <repository>
