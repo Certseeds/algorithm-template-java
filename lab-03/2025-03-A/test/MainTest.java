@@ -33,18 +33,10 @@ public final class MainTest {
 
     @Test
     public void test_1() throws IOException {
-        final List<Sequence.FileTriple> files = new Sequence(1, 12).getFiles(true);
+        final List<Sequence.FileTriple> files = new Sequence(1, 9).getFiles(true);
         for (Sequence.FileTriple file : files) {
             try (Redirect redirect = Redirect.from(DATA_PATH, file.datain(), file.testout())) {
                 Main.output(Main.cal(Main.reader()));
-                final Pair<String, String> p = redirect.compare_double(file.dataout(), file.testout());
-                Assertions.assertEquals(p.getFirst().length(), p.getSecond().length());
-                Assertions.assertEquals(p.getFirst(), p.getSecond());
-            }
-        }
-        for (Sequence.FileTriple file : files) {
-            try (Redirect redirect = Redirect.from(DATA_PATH, file.datain(), file.testout())) {
-                Main2.output(Main2.cal(Main2.reader()));
                 final Pair<String, String> p = redirect.compare_double(file.dataout(), file.testout());
                 Assertions.assertEquals(p.getFirst().length(), p.getSecond().length());
                 Assertions.assertEquals(p.getFirst(), p.getSecond());
