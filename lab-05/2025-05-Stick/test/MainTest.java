@@ -35,6 +35,9 @@ public final class MainTest {
         for (Sequence.FileTriple file : files) {
             try (Redirect redirect = Redirect.from(DATA_PATH, file.datain(), file.testout())) {
                 Main.output(Main.cal(Main.reader()));
+                final Pair<String, String> p = redirect.compare_double(file.dataout(), file.testout());
+                Assertions.assertEquals(p.getFirst().length(), p.getSecond().length());
+                Assertions.assertEquals(p.getFirst(), p.getSecond());
             }
         }
     }
