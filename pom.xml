@@ -123,6 +123,7 @@
         <module>lab-04</module>
         <module>lab-05</module>
         <module>lab-06</module>
+        <module>lab-07</module>
     </modules>
     <repositories>
         <repository>
