@@ -16,12 +16,13 @@
     <name>${project.groupId}.${project.artifactId}</name>
     <description>${project.groupId}.${project.artifactId}</description>
     <modules>
-        <module>2025-06-cut-the-stick</module>
-        <module>2025-06-giants</module>
+        <!-- 以难度排序 -->
         <module>2025-06-leaves</module>
-        <module>2025-06-node-activation</module>
-        <module>2025-06-paths</module>
+        <module>2025-06-cut-the-stick</module>
         <module>2025-06-pre-in-and-post</module>
+        <module>2025-06-paths</module>
+        <module>2025-06-giants</module>
+        <module>2025-06-node-activation</module>
     </modules>
     <dependencies>
         <dependency>
