@@ -124,6 +124,7 @@
         <module>lab-05</module>
         <module>lab-06</module>
         <module>lab-07</module>
+        <module>lab-08</module>
     </modules>
     <repositories>
         <repository>
