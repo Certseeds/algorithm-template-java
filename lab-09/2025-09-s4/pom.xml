@@ -5,12 +5,12 @@
 
     <parent>
         <groupId>nanoseeds.algorithm-template</groupId>
-        <artifactId>2025fall-lab-08</artifactId>
+        <artifactId>2025fall-lab-09</artifactId>
         <version>${revision}</version>
         <relativePath>./../pom.xml</relativePath>
     </parent>
-    <groupId>nanoseeds.algorithm-template.2025fall-lab-08</groupId>
-    <artifactId>2025-08-adjacency-matrix</artifactId>
+    <groupId>nanoseeds.algorithm-template.2025fall-lab-09</groupId>
+    <artifactId>2025-09-s4</artifactId>
     <version>${revision}</version>
     <name>${project.groupId}.${project.artifactId}</name>
     <description>${project.groupId}.${project.artifactId}</description>
