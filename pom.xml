@@ -126,6 +126,7 @@
         <module>lab-07</module>
         <module>lab-08</module>
         <module>lab-09</module>
+        <module>lab-bonus</module>
     </modules>
     <repositories>
         <repository>
