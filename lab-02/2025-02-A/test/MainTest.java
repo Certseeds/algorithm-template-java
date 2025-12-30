@@ -4,10 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
 import tests.Pair;
 import tests.Redirect;
-import tests.Sequence;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Random;
 
 @Slf4j

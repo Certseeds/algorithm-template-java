@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
-import java.util.stream.Collectors;
 
 public final class Main {
     private static final int MIN_T = 1;
