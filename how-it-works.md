@@ -57,7 +57,9 @@ However, 到这里我们只是在本地拿到了文本, 并根据少数用例获
 
 在有了可以通过测试的代码之后, 就可以利用vercel的serverless服务, 在隐藏代码的情况下, 将输入在serverless上的binary上apply, 输出结果了!
 
-现在 <https://github.com/Certseeds/strees-testing-online> 已经开源, 利用cloudflare R2存储 grallVM 的AOT产物, 在 vercel serverless内部运行, 任何人只要通过了测试, 就可以向其他人提供对拍服务!
+现在 <https://github.com/Certseeds/strees-testing-online> 已经开源, 利用cloudflare R2存储 grallVM 的AOT产物, 在 vercel serverless内部运行.
+
+fork仓库后修改 R2桶, vercel服务, 这样通过了测试的代码, 就可以转换为提供对拍的服务!
 
 ## 如何封禁这种场景
 
