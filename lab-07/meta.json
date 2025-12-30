@@ -1,0 +1,32 @@
+{
+    "2025-07-pet-adoption": {
+        "cid": 1059,
+        "pid": 5,
+        "problem_id": 1200
+    },
+   "2025-07-nth-element": {
+        "cid": 1059,
+        "pid": 4,
+        "problem_id": 1203
+    },
+    "2025-07-judgement": {
+        "cid": 1059,
+        "pid": 1,
+        "problem_id": 1282
+    },
+    "2025-07-meet-my-friend": {
+        "cid": 1105,
+        "pid": 0,
+        "problem_id": 1460
+    },
+    "2025-07-only-want-the-smallest": {
+        "cid": 1105,
+        "pid": 2,
+        "problem_id": 1462
+    },
+    "2025-07-funny-fluffy-tuzi": {
+        "cid": 1126,
+        "pid": 2,
+        "problem_id": 1507
+    }
+}

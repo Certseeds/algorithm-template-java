@@ -1,0 +1,32 @@
+{
+    "A": {
+        "cid": 1097,
+        "pid": 0,
+        "problem_id": 1435
+    },
+    "B": {
+        "cid": 1055,
+        "pid": 1,
+        "problem_id": 1262
+    },
+    "C": {
+        "cid": 1082,
+        "pid": 1,
+        "problem_id": 1351
+    },
+    "D": {
+        "cid": 1082,
+        "pid": 3,
+        "problem_id": 1353
+    },
+    "E": {
+        "cid": 1097,
+        "pid": 3,
+        "problem_id": 1439
+    },
+    "F": {
+        "cid": 1097,
+        "pid": 4,
+        "problem_id": 1440
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "2025-bonus-A": {
+        "cid": 1111,
+        "pid": 0,
+        "problem_id": 1479
+    },
+    "2025-bonus-B": {
+        "cid": 1111,
+        "pid": 1,
+        "problem_id": 1481
+    },
+    "2025-bonus-C": {
+        "cid": 1111,
+        "pid": 2,
+        "problem_id": 1480
+    },
+    "2025-bonus-D": {
+        "cid": 1088,
+        "pid": 2,
+        "problem_id": 1393
+    },
+    "2025-bonus-E": {
+        "cid": 1083,
+        "pid": 3,
+        "problem_id": 1337
+    },
+    "2025-bonus-F": {
+        "cid": 1111,
+        "pid": 5,
+        "problem_id": 1483
+    },
+    "2025-bonus-G": {
+        "cid": 1111,
+        "pid": 6,
+        "problem_id": 1477
+    },
+    "2025-bonus-H": {
+        "cid": 1111,
+        "pid": 8,
+        "problem_id": 1482
+    },
+    "2025-bonus-I": {
+        "cid": 1111,
+        "pid": 9,
+        "problem_id": 1472
+    },
+    "2025-bonus-J": {
+        "cid": 0,
+        "pid": 0,
+        "problem_id": 1530
+    }
+}
